@@ -3,5 +3,4 @@ composer.phar
 app/vendor/
 app/storage/cache/*
 .idea
-
-
+_data/
