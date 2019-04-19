@@ -65,46 +65,46 @@ services:
         hard: -1
     networks:
       - elk
-  elasticsearch4:
-    build:
-      context: elasticsearch/
-      args:
-        ELK_VERSION: $ELK_VERSION
-    container_name: elasticsearch4
-    volumes:
-      - ./elasticsearch/config/elasticsearch.yml:/usr/share/elasticsearch/config/elasticsearch.yml:ro
-      - ./_data/elastic4:/usr/share/elasticsearch/data
-    environment:
-      - cluster.name=docker-cluster
-      - bootstrap.memory_lock=true
-      - "discovery.zen.ping.unicast.hosts=elasticsearch"
-      - "ES_JAVA_OPTS=-Xmx512m -Xms512m"
-    ulimits:
-      memlock:
-        soft: -1
-        hard: -1
-    networks:
-      - elk
-  elasticsearch5:
-    build:
-      context: elasticsearch/
-      args:
-        ELK_VERSION: $ELK_VERSION
-    container_name: elasticsearch5
-    volumes:
-      - ./elasticsearch/config/elasticsearch.yml:/usr/share/elasticsearch/config/elasticsearch.yml:ro
-      - ./_data/elastic5:/usr/share/elasticsearch/data
-    environment:
-      - cluster.name=docker-cluster
-      - bootstrap.memory_lock=true
-      - "discovery.zen.ping.unicast.hosts=elasticsearch"
-      - "ES_JAVA_OPTS=-Xmx512m -Xms512m"
-    ulimits:
-      memlock:
-        soft: -1
-        hard: -1
-    networks:
-      - elk
+#  elasticsearch4:
+#    build:
+#      context: elasticsearch/
+#      args:
+#        ELK_VERSION: $ELK_VERSION
+#    container_name: elasticsearch4
+#    volumes:
+#      - ./elasticsearch/config/elasticsearch.yml:/usr/share/elasticsearch/config/elasticsearch.yml:ro
+#      - ./_data/elastic4:/usr/share/elasticsearch/data
+#    environment:
+#      - cluster.name=docker-cluster
+#      - bootstrap.memory_lock=true
+#      - "discovery.zen.ping.unicast.hosts=elasticsearch"
+#      - "ES_JAVA_OPTS=-Xmx512m -Xms512m"
+#    ulimits:
+#      memlock:
+#        soft: -1
+#        hard: -1
+#    networks:
+#      - elk
+#  elasticsearch5:
+#    build:
+#      context: elasticsearch/
+#      args:
+#        ELK_VERSION: $ELK_VERSION
+#    container_name: elasticsearch5
+#    volumes:
+#      - ./elasticsearch/config/elasticsearch.yml:/usr/share/elasticsearch/config/elasticsearch.yml:ro
+#      - ./_data/elastic5:/usr/share/elasticsearch/data
+#    environment:
+#      - cluster.name=docker-cluster
+#      - bootstrap.memory_lock=true
+#      - "discovery.zen.ping.unicast.hosts=elasticsearch"
+#      - "ES_JAVA_OPTS=-Xmx512m -Xms512m"
+#    ulimits:
+#      memlock:
+#        soft: -1
+#        hard: -1
+#    networks:
+#      - elk
   logstash:
     build:
       context: logstash/
