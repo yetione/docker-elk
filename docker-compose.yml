@@ -90,7 +90,7 @@ services:
       context: elasticsearch/
       args:
         ELK_VERSION: $ELK_VERSION
-    container_name: elasticsearch4
+    container_name: elasticsearch5
     volumes:
       - ./elasticsearch/config/elasticsearch.yml:/usr/share/elasticsearch/config/elasticsearch.yml:ro
       - ./_data/elastic5:/usr/share/elasticsearch/data
