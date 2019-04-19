@@ -99,8 +99,8 @@ services:
       LS_JAVA_OPTS: "-Xmx256m -Xms256m"
     networks:
       - elk
-    depends_on:
-      - elasticsearch
+#    depends_on:
+#      - elasticsearch
 
   kibana:
     build:
@@ -113,8 +113,8 @@ services:
       - "5601:5601"
     networks:
       - elk
-    depends_on:
-      - elasticsearch
+#    depends_on:
+#      - elasticsearch
 
 networks:
   elk:
