@@ -12,62 +12,59 @@ services:
       - ./elasticsearch/config/elasticsearch.yml:/usr/share/elasticsearch/config/elasticsearch.yml:ro
       - ./_data/elastic1:/usr/share/elasticsearch/data
     ports:
-      - "127.0.0.1:9200:9200"
-      - "127.0.0.1:9300:9300"
-    expose:
-      - "9200"
-      - "9300"
+      - "9200:9200"
+      - "9300:9300"
     environment:
       - cluster.name=docker-cluster
       - bootstrap.memory_lock=true
       - http.cors.allow-origin=/https?:\/\/elasticsearch[0-9]*(:[0-9]+)?/
-      - "ES_JAVA_OPTS=-Xms256m -Xmx256m"
+      - "ES_JAVA_OPTS=-Xms512m -Xmx512m"
     ulimits:
       memlock:
         soft: -1
         hard: -1
     networks:
       - elk
-#  elasticsearch2:
-#    build:
-#      context: elasticsearch/
-#      args:
-#        ELK_VERSION: $ELK_VERSION
-#    container_name: elasticsearch2
-#    volumes:
-#      - ./elasticsearch/config/elasticsearch.yml:/usr/share/elasticsearch/config/elasticsearch.yml:ro
-#      - ./_data/elastic2:/usr/share/elasticsearch/data
-#    environment:
-#      - cluster.name=docker-cluster
-#      - bootstrap.memory_lock=true
-#      - "discovery.zen.ping.unicast.hosts=elasticsearch"
-#      - "ES_JAVA_OPTS=-Xmx256m -Xms256m"
-#    ulimits:
-#      memlock:
-#        soft: -1
-#        hard: -1
-#    networks:
-#      - elk
-#  elasticsearch3:
-#    build:
-#      context: elasticsearch/
-#      args:
-#        ELK_VERSION: $ELK_VERSION
-#    container_name: elasticsearch3
-#    volumes:
-#      - ./elasticsearch/config/elasticsearch.yml:/usr/share/elasticsearch/config/elasticsearch.yml:ro
-#      - ./_data/elastic3:/usr/share/elasticsearch/data
-#    environment:
-#      - cluster.name=docker-cluster
-#      - bootstrap.memory_lock=true
-#      - "discovery.zen.ping.unicast.hosts=elasticsearch"
-#      - "ES_JAVA_OPTS=-Xmx512m -Xms512m"
-#    ulimits:
-#      memlock:
-#        soft: -1
-#        hard: -1
-#    networks:
-#      - elk
+  elasticsearch2:
+    build:
+      context: elasticsearch/
+      args:
+        ELK_VERSION: $ELK_VERSION
+    container_name: elasticsearch2
+    volumes:
+      - ./elasticsearch/config/elasticsearch.yml:/usr/share/elasticsearch/config/elasticsearch.yml:ro
+      - ./_data/elastic2:/usr/share/elasticsearch/data
+    environment:
+      - cluster.name=docker-cluster
+      - bootstrap.memory_lock=true
+      - "discovery.zen.ping.unicast.hosts=elasticsearch"
+      - "ES_JAVA_OPTS=-Xmx512m -Xms512m"
+    ulimits:
+      memlock:
+        soft: -1
+        hard: -1
+    networks:
+      - elk
+  elasticsearch3:
+    build:
+      context: elasticsearch/
+      args:
+        ELK_VERSION: $ELK_VERSION
+    container_name: elasticsearch3
+    volumes:
+      - ./elasticsearch/config/elasticsearch.yml:/usr/share/elasticsearch/config/elasticsearch.yml:ro
+      - ./_data/elastic3:/usr/share/elasticsearch/data
+    environment:
+      - cluster.name=docker-cluster
+      - bootstrap.memory_lock=true
+      - "discovery.zen.ping.unicast.hosts=elasticsearch"
+      - "ES_JAVA_OPTS=-Xmx512m -Xms512m"
+    ulimits:
+      memlock:
+        soft: -1
+        hard: -1
+    networks:
+      - elk
 #  elasticsearch4:
 #    build:
 #      context: elasticsearch/
@@ -88,20 +85,20 @@ services:
 #        hard: -1
 #    networks:
 #      - elk
-#  logstash:
-#    build:
-#      context: logstash/
-#      args:
-#        ELK_VERSION: $ELK_VERSION
-#    volumes:
-#      - ./logstash/config/logstash.yml:/usr/share/logstash/config/logstash.yml:ro
-#      - ./logstash/pipeline:/usr/share/logstash/pipeline:ro
-#    ports:
-#      - "127.0.0.1:5000:5000"
-#    environment:
-#      LS_JAVA_OPTS: "-Xmx256m -Xms256m"
-#    networks:
-#      - elk
+  logstash:
+    build:
+      context: logstash/
+      args:
+        ELK_VERSION: $ELK_VERSION
+    volumes:
+      - ./logstash/config/logstash.yml:/usr/share/logstash/config/logstash.yml:ro
+      - ./logstash/pipeline:/usr/share/logstash/pipeline:ro
+    ports:
+      - "5000:5000"
+    environment:
+      LS_JAVA_OPTS: "-Xmx256m -Xms256m"
+    networks:
+      - elk
 #    depends_on:
 #      - elasticsearch
 
@@ -110,15 +107,14 @@ services:
       context: kibana/
       args:
         ELK_VERSION: $ELK_VERSION
-    container_name: kibana
     volumes:
       - ./kibana/config/:/usr/share/kibana/config:ro
     ports:
-      - "127.0.0.1:5601:5601"
+      - "5601:5601"
     networks:
       - elk
-    depends_on:
-      - elasticsearch
+#    depends_on:
+#      - elasticsearch
 
 networks:
   elk:
