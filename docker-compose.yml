@@ -11,16 +11,18 @@ services:
     volumes:
       - ./elasticsearch/config/elasticsearch.yml:/usr/share/elasticsearch/config/elasticsearch.yml:ro
       - ./_data/elastic1:/usr/share/elasticsearch/data
-
+    ports:
+      - "127.0.0.1:9200:9200"
+      - "127.0.0.1:9300:9300"
+    expose:
+      - "9200"
+      - "9300"
     environment:
       - cluster.name=docker-cluster
       - bootstrap.memory_lock=true
       - http.cors.allow-origin=/https?:\/\/elasticsearch[0-9]*(:[0-9]+)?/
       - "ES_JAVA_OPTS=-Xms512m -Xmx512m"
       - node.name=elasticsearchMaster
-      - node.master=true
-      - node.ingest=false
-      - node.data=false
     ulimits:
       memlock:
         soft: -1
@@ -33,12 +35,6 @@ services:
       args:
         ELK_VERSION: $ELK_VERSION
     container_name: elasticsearch2
-    ports:
-      - "127.0.0.1:9200:9200"
-      - "127.0.0.1:9300:9300"
-    expose:
-      - "9200"
-      - "9300"
     volumes:
       - ./elasticsearch/config/elasticsearch.yml:/usr/share/elasticsearch/config/elasticsearch.yml:ro
       - ./_data/elastic2:/usr/share/elasticsearch/data
@@ -47,10 +43,7 @@ services:
       - bootstrap.memory_lock=true
       - "discovery.zen.ping.unicast.hosts=elasticsearch"
       - "ES_JAVA_OPTS=-Xmx512m -Xms512m"
-      - node.name=elasticsearch2ingest
-      - node.master=true
-      - node.ingest=true
-      - node.data=false
+      - node.name=elasticsearch2
     ulimits:
       memlock:
         soft: -1
@@ -71,10 +64,7 @@ services:
       - bootstrap.memory_lock=true
       - "discovery.zen.ping.unicast.hosts=elasticsearch"
       - "ES_JAVA_OPTS=-Xmx512m -Xms512m"
-      - node.name=elasticsearch3data
-      - node.master=false
-      - node.ingest=false
-      - node.data=true
+      - node.name=elasticsearch3
     ulimits:
       memlock:
         soft: -1
@@ -96,9 +86,6 @@ services:
       - "discovery.zen.ping.unicast.hosts=elasticsearch"
       - "ES_JAVA_OPTS=-Xmx512m -Xms512m"
       - node.name=elasticsearch4
-      - node.master=false
-      - node.ingest=false
-      - node.data=true
     ulimits:
       memlock:
         soft: -1
@@ -120,39 +107,32 @@ services:
       - "discovery.zen.ping.unicast.hosts=elasticsearch"
       - "ES_JAVA_OPTS=-Xmx512m -Xms512m"
       - node.name=elasticsearch5
-      - node.master=false
-      - node.ingest=false
-      - node.data=true
     ulimits:
       memlock:
         soft: -1
         hard: -1
     networks:
       - elk
-  elasticsearch6:
-    build:
-      context: elasticsearch/
-      args:
-        ELK_VERSION: $ELK_VERSION
-    container_name: elasticsearch6
-    volumes:
-      - ./elasticsearch/config/elasticsearch.yml:/usr/share/elasticsearch/config/elasticsearch.yml:ro
-      - ./_data/elastic6:/usr/share/elasticsearch/data
-    environment:
-      - cluster.name=docker-cluster
-      - bootstrap.memory_lock=true
-      - "discovery.zen.ping.unicast.hosts=elasticsearch"
-      - "ES_JAVA_OPTS=-Xmx512m -Xms512m"
-      - node.name=elasticsearch6
-      - node.master=false
-      - node.ingest=false
-      - node.data=true
-    ulimits:
-      memlock:
-        soft: -1
-        hard: -1
-    networks:
-      - elk
+#  elasticsearch6:
+#    build:
+#      context: elasticsearch/
+#      args:
+#        ELK_VERSION: $ELK_VERSION
+#    container_name: elasticsearch6
+#    volumes:
+#      - ./elasticsearch/config/elasticsearch.yml:/usr/share/elasticsearch/config/elasticsearch.yml:ro
+#      - ./_data/elastic6:/usr/share/elasticsearch/data
+#    environment:
+#      - cluster.name=docker-cluster
+#      - bootstrap.memory_lock=true
+#      - "discovery.zen.ping.unicast.hosts=elasticsearch"
+#      - "ES_JAVA_OPTS=-Xmx512m -Xms512m"
+#    ulimits:
+#      memlock:
+#        soft: -1
+#        hard: -1
+#    networks:
+#      - elk
 #  elasticsearch7:
 #    build:
 #      context: elasticsearch/
@@ -167,7 +147,6 @@ services:
 #      - bootstrap.memory_lock=true
 #      - "discovery.zen.ping.unicast.hosts=elasticsearch"
 #      - "ES_JAVA_OPTS=-Xmx512m -Xms512m"
-#      - node.name=elasticsearch7
 #    ulimits:
 #      memlock:
 #        soft: -1
@@ -188,7 +167,6 @@ services:
 #      - bootstrap.memory_lock=true
 #      - "discovery.zen.ping.unicast.hosts=elasticsearch"
 #      - "ES_JAVA_OPTS=-Xmx512m -Xms512m"
-#      - node.name=elasticsearch8
 #    ulimits:
 #      memlock:
 #        soft: -1
@@ -209,7 +187,6 @@ services:
 #      - bootstrap.memory_lock=true
 #      - "discovery.zen.ping.unicast.hosts=elasticsearch"
 #      - "ES_JAVA_OPTS=-Xmx512m -Xms512m"
-#      - node.name=elasticsearch9
 #    ulimits:
 #      memlock:
 #        soft: -1
@@ -230,7 +207,6 @@ services:
 #      - bootstrap.memory_lock=true
 #      - "discovery.zen.ping.unicast.hosts=elasticsearch"
 #      - "ES_JAVA_OPTS=-Xmx512m -Xms512m"
-#      - node.name=elasticsearch10
 #    ulimits:
 #      memlock:
 #        soft: -1
@@ -251,7 +227,6 @@ services:
 #      - bootstrap.memory_lock=true
 #      - "discovery.zen.ping.unicast.hosts=elasticsearch"
 #      - "ES_JAVA_OPTS=-Xmx512m -Xms512m"
-#      - node.name=elasticsearch11
 #    ulimits:
 #      memlock:
 #        soft: -1
@@ -272,7 +247,6 @@ services:
 #      - bootstrap.memory_lock=true
 #      - "discovery.zen.ping.unicast.hosts=elasticsearch"
 #      - "ES_JAVA_OPTS=-Xmx512m -Xms512m"
-#      - node.name=elasticsearch12
 #    ulimits:
 #      memlock:
 #        soft: -1
@@ -293,7 +267,6 @@ services:
 #      - bootstrap.memory_lock=true
 #      - "discovery.zen.ping.unicast.hosts=elasticsearch"
 #      - "ES_JAVA_OPTS=-Xmx512m -Xms512m"
-#      - node.name=elasticsearch13
 #    ulimits:
 #      memlock:
 #        soft: -1
@@ -314,7 +287,6 @@ services:
 #      - bootstrap.memory_lock=true
 #      - "discovery.zen.ping.unicast.hosts=elasticsearch"
 #      - "ES_JAVA_OPTS=-Xmx512m -Xms512m"
-#      - node.name=elasticsearch14
 #    ulimits:
 #      memlock:
 #        soft: -1
@@ -335,7 +307,6 @@ services:
 #      - bootstrap.memory_lock=true
 #      - "discovery.zen.ping.unicast.hosts=elasticsearch"
 #      - "ES_JAVA_OPTS=-Xmx512m -Xms512m"
-#      - node.name=elasticsearch15
 #    ulimits:
 #      memlock:
 #        soft: -1
@@ -356,7 +327,6 @@ services:
 #      - bootstrap.memory_lock=true
 #      - "discovery.zen.ping.unicast.hosts=elasticsearch"
 #      - "ES_JAVA_OPTS=-Xmx512m -Xms512m"
-#      - node.name=elasticsearch16
 #    ulimits:
 #      memlock:
 #        soft: -1
@@ -377,7 +347,6 @@ services:
 #      - bootstrap.memory_lock=true
 #      - "discovery.zen.ping.unicast.hosts=elasticsearch"
 #      - "ES_JAVA_OPTS=-Xmx512m -Xms512m"
-#      - node.name=elasticsearch17
 #    ulimits:
 #      memlock:
 #        soft: -1
@@ -398,7 +367,6 @@ services:
 #      - bootstrap.memory_lock=true
 #      - "discovery.zen.ping.unicast.hosts=elasticsearch"
 #      - "ES_JAVA_OPTS=-Xmx512m -Xms512m"
-#      - node.name=elasticsearch18
 #    ulimits:
 #      memlock:
 #        soft: -1
@@ -419,7 +387,6 @@ services:
 #      - bootstrap.memory_lock=true
 #      - "discovery.zen.ping.unicast.hosts=elasticsearch"
 #      - "ES_JAVA_OPTS=-Xmx512m -Xms512m"
-#      - node.name=elasticsearch19
 #    ulimits:
 #      memlock:
 #        soft: -1
@@ -440,13 +407,30 @@ services:
 #      - bootstrap.memory_lock=true
 #      - "discovery.zen.ping.unicast.hosts=elasticsearch"
 #      - "ES_JAVA_OPTS=-Xmx512m -Xms512m"
-#      - node.name=elasticsearch20
 #    ulimits:
 #      memlock:
 #        soft: -1
 #        hard: -1
 #    networks:
 #      - elk
+#  logstash:
+#    build:
+#      context: logstash/
+#      args:
+#        ELK_VERSION: $ELK_VERSION
+#    container_name: logstash
+#    volumes:
+#      - ./logstash/config/logstash.yml:/usr/share/logstash/config/logstash.yml:ro
+#      - ./logstash/pipeline:/usr/share/logstash/pipeline:ro
+#    ports:
+#      - "127.0.0.1:5000:5000"
+#    environment:
+#      LS_JAVA_OPTS: "-Xmx256m -Xms256m"
+#    networks:
+#      - elk
+#    depends_on:
+#      - elasticsearch
+
   kibana:
     build:
       context: kibana/
