@@ -7,7 +7,7 @@ services:
       context: elasticsearch/
       args:
         ELK_VERSION: $ELK_VERSION
-    container_name: esMaster1
+    container_name: es_master_1
     volumes:
       - ./elasticsearch/config/elasticsearch.yml:/usr/share/elasticsearch/config/elasticsearch.yml:ro
       - ./elasticsearch/config/log4j2.properties:/usr/share/elasticsearch/config/log4j2.properties:ro
@@ -544,7 +544,7 @@ services:
     networks:
       - elk
     depends_on:
-      - elasticsearch
+      - es_master_1
 
 networks:
   elk:
