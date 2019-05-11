@@ -1,0 +1,11 @@
+network.host: 0.0.0.0
+cluster.name: "docker-cluster"
+bootstrap.memory_lock: true
+http.cors.allow-origin: /https?:\/\/es[a-z0-9_]*(:[0-9]+)?/
+node.master: false
+node.ingest: true
+node.data: true
+discovery.zen.minimum_master_nodes: 3
+path.logs: /var/log/elasticsearch
+discovery.zen.ping.unicast.hosts: ["es_master_1", "es_master_2", "es_master_3"]
+
