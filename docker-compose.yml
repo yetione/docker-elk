@@ -93,6 +93,42 @@ services:
         hard: -1
     networks:
       - elk
+  elasticsearch22:
+    build:
+      context: elasticsearch/
+      args:
+        ELK_VERSION: $ELK_VERSION
+    container_name: elasticsearch22
+    volumes:
+      - ./elasticsearch/config/elasticsearch.yml:/usr/share/elasticsearch/config/elasticsearch.yml:ro
+      - ./elasticsearch/config/log4j2.properties:/usr/share/elasticsearch/config/log4j2.properties:ro
+      #      - ./_data/elastic1:/usr/share/elasticsearch/data
+      - esdata4:/usr/share/elasticsearch/data
+      - eslogs:/var/log/elasticsearch
+    ports:
+      - "127.0.0.1:9201:9200"
+      - "127.0.0.1:9301:9300"
+    expose:
+      - "9201"
+      - "9301"
+    environment:
+      - cluster.name=docker-cluster
+      - bootstrap.memory_lock=true
+      - http.cors.allow-origin=/https?:\/\/elasticsearch[0-9]*(:[0-9]+)?/
+      - "ES_JAVA_OPTS=-Xms512m -Xmx512m"
+      - node.name=elasticsearch22
+      - eslogs:/var/log/elasticsearch
+      - node.master=true
+      - node.ingest=false
+      - node.data=false
+      - cluster.remote.connect: false
+    ulimits:
+      nproc: 65535
+      memlock:
+        soft: -1
+        hard: -1
+    networks:
+      - elk
 #  elasticsearch4:
 #    build:
 #      context: elasticsearch/
