@@ -121,7 +121,7 @@ services:
       context: elasticsearch/
       args:
         ELK_VERSION: $ELK_VERSION
-    container_name: elasticsearch3
+    container_name: elasticsearch2_3
     volumes:
       - ./elasticsearch/config/elasticsearch.yml:/usr/share/elasticsearch/config/elasticsearch.yml:ro
       - ./_data/elastic6:/usr/share/elasticsearch/data
