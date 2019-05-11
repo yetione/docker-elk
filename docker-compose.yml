@@ -10,6 +10,7 @@ services:
     container_name: elasticsearch
     volumes:
       - ./elasticsearch/config/elasticsearch.yml:/usr/share/elasticsearch/config/elasticsearch.yml:ro
+      - ./elasticsearch/config/log4j2.properties:/usr/share/elasticsearch/config/log4j2.properties:ro
 #      - ./_data/elastic1:/usr/share/elasticsearch/data
       - esdata1:/usr/share/elasticsearch/data
     ports:
@@ -39,6 +40,7 @@ services:
     container_name: elasticsearch2
     volumes:
       - ./elasticsearch/config/elasticsearch.yml:/usr/share/elasticsearch/config/elasticsearch.yml:ro
+      - ./elasticsearch/config/log4j2.properties:/usr/share/elasticsearch/config/log4j2.properties:ro
 #      - ./_data/elastic2:/usr/share/elasticsearch/data
       - esdata2:/usr/share/elasticsearch/data
     environment:
@@ -62,6 +64,7 @@ services:
     container_name: elasticsearch3
     volumes:
       - ./elasticsearch/config/elasticsearch.yml:/usr/share/elasticsearch/config/elasticsearch.yml:ro
+      - ./elasticsearch/config/log4j2.properties:/usr/share/elasticsearch/config/log4j2.properties:ro
 #      - ./_data/elastic3:/usr/share/elasticsearch/data
       - esdata3:/usr/share/elasticsearch/data
     environment:
