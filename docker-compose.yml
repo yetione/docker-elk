@@ -9,7 +9,7 @@ services:
         ELK_VERSION: $ELK_VERSION
     container_name: es_master_1
     volumes:
-      - ./elasticsearch/master/:/usr/share/elasticsearch/config
+      - ./elasticsearch/master/:/usr/share/elasticsearch/config:ro
       - master_1:/usr/share/elasticsearch/data
       - log:/var/log/elasticsearch
 #    ports:
@@ -34,7 +34,7 @@ services:
         ELK_VERSION: $ELK_VERSION
     container_name: es_master_2
     volumes:
-      - ./elasticsearch/master/:/usr/share/elasticsearch/config
+      - ./elasticsearch/master/:/usr/share/elasticsearch/config:ro
       - master_2:/usr/share/elasticsearch/data
       - log:/var/log/elasticsearch
 #    ports:
@@ -59,7 +59,7 @@ services:
         ELK_VERSION: $ELK_VERSION
     container_name: es_master_3
     volumes:
-      - ./elasticsearch/master/:/usr/share/elasticsearch/config
+      - ./elasticsearch/master/:/usr/share/elasticsearch/config:ro
       - master_3:/usr/share/elasticsearch/data
       - log:/var/log/elasticsearch
 #    ports:
@@ -84,7 +84,7 @@ services:
         ELK_VERSION: $ELK_VERSION
     container_name: es_ingest
     volumes:
-      - ./elasticsearch/ingest/:/usr/share/elasticsearch/config
+      - ./elasticsearch/ingest/:/usr/share/elasticsearch/config:ro
       - ingest_1:/usr/share/elasticsearch/data
       - log:/var/log/elasticsearch
     environment:
@@ -103,7 +103,7 @@ services:
         ELK_VERSION: $ELK_VERSION
     container_name: es_data_1
     volumes:
-      - ./elasticsearch/data/:/usr/share/elasticsearch/config
+      - ./elasticsearch/data/:/usr/share/elasticsearch/config:ro
       - data_1:/usr/share/elasticsearch/data
       - log:/var/log/elasticsearch
     environment:
@@ -122,7 +122,7 @@ services:
         ELK_VERSION: $ELK_VERSION
     container_name: es_data_2
     volumes:
-      - ./elasticsearch/data/:/usr/share/elasticsearch/config
+      - ./elasticsearch/data/:/usr/share/elasticsearch/config:ro
       - data_2:/usr/share/elasticsearch/data
       - log:/var/log/elasticsearch
     environment:
