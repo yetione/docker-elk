@@ -51,7 +51,7 @@ services:
       - eslogs:/var/log/elasticsearch
       - node.master=false
       - node.ingest=true
-      - node.data=false
+      - node.data=true
     environment:
       - cluster.name=docker-cluster
       - bootstrap.memory_lock=true
