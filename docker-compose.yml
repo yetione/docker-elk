@@ -10,7 +10,8 @@ services:
     container_name: elasticsearch
     volumes:
       - ./elasticsearch/config/elasticsearch.yml:/usr/share/elasticsearch/config/elasticsearch.yml:ro
-      - ./_data/elastic1:/usr/share/elasticsearch/data
+#      - ./_data/elastic1:/usr/share/elasticsearch/data
+      - esdata1:/usr/share/elasticsearch/data
     ports:
       - "127.0.0.1:9200:9200"
       - "127.0.0.1:9300:9300"
@@ -24,6 +25,7 @@ services:
       - "ES_JAVA_OPTS=-Xms512m -Xmx512m"
       - node.name=elasticsearchMaster
     ulimits:
+      nproc: 65535
       memlock:
         soft: -1
         hard: -1
@@ -37,7 +39,8 @@ services:
     container_name: elasticsearch2
     volumes:
       - ./elasticsearch/config/elasticsearch.yml:/usr/share/elasticsearch/config/elasticsearch.yml:ro
-      - ./_data/elastic2:/usr/share/elasticsearch/data
+#      - ./_data/elastic2:/usr/share/elasticsearch/data
+      - esdata2:/usr/share/elasticsearch/data
     environment:
       - cluster.name=docker-cluster
       - bootstrap.memory_lock=true
@@ -45,6 +48,7 @@ services:
       - "ES_JAVA_OPTS=-Xmx512m -Xms512m"
       - node.name=elasticsearch2
     ulimits:
+      nproc: 65535
       memlock:
         soft: -1
         hard: -1
@@ -58,7 +62,8 @@ services:
     container_name: elasticsearch3
     volumes:
       - ./elasticsearch/config/elasticsearch.yml:/usr/share/elasticsearch/config/elasticsearch.yml:ro
-      - ./_data/elastic3:/usr/share/elasticsearch/data
+#      - ./_data/elastic3:/usr/share/elasticsearch/data
+      - esdata3:/usr/share/elasticsearch/data
     environment:
       - cluster.name=docker-cluster
       - bootstrap.memory_lock=true
@@ -66,6 +71,7 @@ services:
       - "ES_JAVA_OPTS=-Xmx512m -Xms512m"
       - node.name=elasticsearch3
     ulimits:
+      nproc: 65535
       memlock:
         soft: -1
         hard: -1
@@ -87,6 +93,7 @@ services:
 #      - "ES_JAVA_OPTS=-Xmx512m -Xms512m"
 #      - node.name=elasticsearch4
 #    ulimits:
+#      nproc: 65535
 #      memlock:
 #        soft: -1
 #        hard: -1
@@ -108,6 +115,7 @@ services:
 #      - "ES_JAVA_OPTS=-Xmx512m -Xms512m"
 #      - node.name=elasticsearch5
 #    ulimits:
+#      nproc: 65535
 #      memlock:
 #        soft: -1
 #        hard: -1
@@ -128,6 +136,7 @@ services:
 #      - "discovery.zen.ping.unicast.hosts=elasticsearch"
 #      - "ES_JAVA_OPTS=-Xmx512m -Xms512m"
 #    ulimits:
+#      nproc: 65535
 #      memlock:
 #        soft: -1
 #        hard: -1
@@ -148,6 +157,7 @@ services:
 #      - "discovery.zen.ping.unicast.hosts=elasticsearch"
 #      - "ES_JAVA_OPTS=-Xmx512m -Xms512m"
 #    ulimits:
+#      nproc: 65535
 #      memlock:
 #        soft: -1
 #        hard: -1
@@ -168,6 +178,7 @@ services:
 #      - "discovery.zen.ping.unicast.hosts=elasticsearch"
 #      - "ES_JAVA_OPTS=-Xmx512m -Xms512m"
 #    ulimits:
+#      nproc: 65535
 #      memlock:
 #        soft: -1
 #        hard: -1
@@ -188,6 +199,7 @@ services:
 #      - "discovery.zen.ping.unicast.hosts=elasticsearch"
 #      - "ES_JAVA_OPTS=-Xmx512m -Xms512m"
 #    ulimits:
+#      nproc: 65535
 #      memlock:
 #        soft: -1
 #        hard: -1
@@ -208,6 +220,7 @@ services:
 #      - "discovery.zen.ping.unicast.hosts=elasticsearch"
 #      - "ES_JAVA_OPTS=-Xmx512m -Xms512m"
 #    ulimits:
+#      nproc: 65535
 #      memlock:
 #        soft: -1
 #        hard: -1
@@ -228,6 +241,7 @@ services:
 #      - "discovery.zen.ping.unicast.hosts=elasticsearch"
 #      - "ES_JAVA_OPTS=-Xmx512m -Xms512m"
 #    ulimits:
+#      nproc: 65535
 #      memlock:
 #        soft: -1
 #        hard: -1
@@ -248,6 +262,7 @@ services:
 #      - "discovery.zen.ping.unicast.hosts=elasticsearch"
 #      - "ES_JAVA_OPTS=-Xmx512m -Xms512m"
 #    ulimits:
+#      nproc: 65535
 #      memlock:
 #        soft: -1
 #        hard: -1
@@ -268,6 +283,7 @@ services:
 #      - "discovery.zen.ping.unicast.hosts=elasticsearch"
 #      - "ES_JAVA_OPTS=-Xmx512m -Xms512m"
 #    ulimits:
+#      nproc: 65535
 #      memlock:
 #        soft: -1
 #        hard: -1
@@ -288,6 +304,7 @@ services:
 #      - "discovery.zen.ping.unicast.hosts=elasticsearch"
 #      - "ES_JAVA_OPTS=-Xmx512m -Xms512m"
 #    ulimits:
+#      nproc: 65535
 #      memlock:
 #        soft: -1
 #        hard: -1
@@ -308,6 +325,7 @@ services:
 #      - "discovery.zen.ping.unicast.hosts=elasticsearch"
 #      - "ES_JAVA_OPTS=-Xmx512m -Xms512m"
 #    ulimits:
+#      nproc: 65535
 #      memlock:
 #        soft: -1
 #        hard: -1
@@ -328,6 +346,7 @@ services:
 #      - "discovery.zen.ping.unicast.hosts=elasticsearch"
 #      - "ES_JAVA_OPTS=-Xmx512m -Xms512m"
 #    ulimits:
+#      nproc: 65535
 #      memlock:
 #        soft: -1
 #        hard: -1
@@ -348,6 +367,7 @@ services:
 #      - "discovery.zen.ping.unicast.hosts=elasticsearch"
 #      - "ES_JAVA_OPTS=-Xmx512m -Xms512m"
 #    ulimits:
+#      nproc: 65535
 #      memlock:
 #        soft: -1
 #        hard: -1
@@ -368,6 +388,7 @@ services:
 #      - "discovery.zen.ping.unicast.hosts=elasticsearch"
 #      - "ES_JAVA_OPTS=-Xmx512m -Xms512m"
 #    ulimits:
+#      nproc: 65535
 #      memlock:
 #        soft: -1
 #        hard: -1
@@ -388,6 +409,7 @@ services:
 #      - "discovery.zen.ping.unicast.hosts=elasticsearch"
 #      - "ES_JAVA_OPTS=-Xmx512m -Xms512m"
 #    ulimits:
+#      nproc: 65535
 #      memlock:
 #        soft: -1
 #        hard: -1
@@ -408,6 +430,7 @@ services:
 #      - "discovery.zen.ping.unicast.hosts=elasticsearch"
 #      - "ES_JAVA_OPTS=-Xmx512m -Xms512m"
 #    ulimits:
+#      nproc: 65535
 #      memlock:
 #        soft: -1
 #        hard: -1
@@ -449,3 +472,17 @@ services:
 networks:
   elk:
     driver: bridge
+
+volumes:
+  esdata1:
+    driver: local
+  esdata2:
+    driver: local
+  esdata3:
+    driver: local
+  esdata4:
+    driver: local
+  esdata5:
+    driver: local
+  esdata6:
+    driver: local
