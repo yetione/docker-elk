@@ -2,12 +2,12 @@ version: '3.5'
 
 services:
 
-  elasticsearch:
+  esMaster1:
     build:
       context: elasticsearch/
       args:
         ELK_VERSION: $ELK_VERSION
-    container_name: elasticsearch
+    container_name: esMaster1
     volumes:
       - ./elasticsearch/config/elasticsearch.yml:/usr/share/elasticsearch/config/elasticsearch.yml:ro
       - ./elasticsearch/config/log4j2.properties:/usr/share/elasticsearch/config/log4j2.properties:ro
@@ -23,10 +23,9 @@ services:
     environment:
       - cluster.name=docker-cluster
       - bootstrap.memory_lock=true
-      - http.cors.allow-origin=/https?:\/\/elasticsearch[0-9]*(:[0-9]+)?/
+      - http.cors.allow-origin=/https?:\/\/es[a-z0-9_]*(:[0-9]+)?/
       - "ES_JAVA_OPTS=-Xms512m -Xmx512m"
-      - node.name=elasticsearchMaster
-      - eslogs:/var/log/elasticsearch
+      - node.name=esMaster1
       - node.master=true
       - node.ingest=false
       - node.data=false
@@ -37,12 +36,12 @@ services:
         hard: -1
     networks:
       - elk
-  elasticsearch2:
+  esIngest:
     build:
       context: elasticsearch/
       args:
         ELK_VERSION: $ELK_VERSION
-    container_name: elasticsearch2
+    container_name: esIngest
     volumes:
       - ./elasticsearch/config/elasticsearch.yml:/usr/share/elasticsearch/config/elasticsearch.yml:ro
       - ./elasticsearch/config/log4j2.properties:/usr/share/elasticsearch/config/log4j2.properties:ro
@@ -52,9 +51,9 @@ services:
     environment:
       - cluster.name=docker-cluster
       - bootstrap.memory_lock=true
-      - "discovery.zen.ping.unicast.hosts=elasticsearch,elasticsearch22"
+      - "discovery.zen.ping.unicast.hosts=esMaster1,esMaster2"
       - "ES_JAVA_OPTS=-Xmx512m -Xms512m"
-      - node.name=elasticsearch2
+      - node.name=esIngest
       - node.master=false
       - node.ingest=true
       - node.data=true
@@ -65,12 +64,12 @@ services:
         hard: -1
     networks:
       - elk
-  elasticsearch3:
+  esData1:
     build:
       context: elasticsearch/
       args:
         ELK_VERSION: $ELK_VERSION
-    container_name: elasticsearch3
+    container_name: esData1
     volumes:
       - ./elasticsearch/config/elasticsearch.yml:/usr/share/elasticsearch/config/elasticsearch.yml:ro
       - ./elasticsearch/config/log4j2.properties:/usr/share/elasticsearch/config/log4j2.properties:ro
@@ -80,9 +79,9 @@ services:
     environment:
       - cluster.name=docker-cluster
       - bootstrap.memory_lock=true
-      - "discovery.zen.ping.unicast.hosts=elasticsearch,elasticsearch22"
+      - "discovery.zen.ping.unicast.hosts=esMaster1,esMaster2"
       - "ES_JAVA_OPTS=-Xmx512m -Xms512m"
-      - node.name=elasticsearch3
+      - node.name=esData1
       - node.master=false
       - node.ingest=false
       - node.data=true
@@ -93,12 +92,40 @@ services:
         hard: -1
     networks:
       - elk
-  elasticsearch22:
+  esData2:
     build:
       context: elasticsearch/
       args:
         ELK_VERSION: $ELK_VERSION
-    container_name: elasticsearch22
+    container_name: esData2
+    volumes:
+      - ./elasticsearch/config/elasticsearch.yml:/usr/share/elasticsearch/config/elasticsearch.yml:ro
+      - ./elasticsearch/config/log4j2.properties:/usr/share/elasticsearch/config/log4j2.properties:ro
+      #      - ./_data/elastic3:/usr/share/elasticsearch/data
+      - esdata5:/usr/share/elasticsearch/data
+      - eslogs:/var/log/elasticsearch
+    environment:
+      - cluster.name=docker-cluster
+      - bootstrap.memory_lock=true
+      - "discovery.zen.ping.unicast.hosts=esMaster1,esMaster2"
+      - "ES_JAVA_OPTS=-Xmx512m -Xms512m"
+      - node.name=esData2
+      - node.master=false
+      - node.ingest=false
+      - node.data=true
+    ulimits:
+      nproc: 65535
+      memlock:
+        soft: -1
+        hard: -1
+    networks:
+      - elk
+  esMaster2:
+    build:
+      context: elasticsearch/
+      args:
+        ELK_VERSION: $ELK_VERSION
+    container_name: esMaster2
     volumes:
       - ./elasticsearch/config/elasticsearch.yml:/usr/share/elasticsearch/config/elasticsearch.yml:ro
       - ./elasticsearch/config/log4j2.properties:/usr/share/elasticsearch/config/log4j2.properties:ro
@@ -114,14 +141,12 @@ services:
     environment:
       - cluster.name=docker-cluster
       - bootstrap.memory_lock=true
-      - http.cors.allow-origin=/https?:\/\/elasticsearch[0-9]*(:[0-9]+)?/
+      - http.cors.allow-origin=/https?:\/\/es[a-z0-9_]*(:[0-9]+)?/
       - "ES_JAVA_OPTS=-Xms512m -Xmx512m"
-      - node.name=elasticsearch22
-      - eslogs:/var/log/elasticsearch
+      - node.name=esMaster2
       - node.master=true
       - node.ingest=false
       - node.data=false
-      - cluster.remote.connect=false
     ulimits:
       nproc: 65535
       memlock:
