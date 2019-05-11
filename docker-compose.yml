@@ -489,3 +489,5 @@ volumes:
     driver: local
   esdata6:
     driver: local
+  eslogs:
+    driver: local
