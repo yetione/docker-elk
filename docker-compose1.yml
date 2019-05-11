@@ -12,8 +12,8 @@ services:
       - ./elasticsearch/config/elasticsearch.yml:/usr/share/elasticsearch/config/elasticsearch.yml:ro
       - ./_data/elastic1:/usr/share/elasticsearch/data
     ports:
-      - "127.0.0.1:9200:9200"
-      - "127.0.0.1:9300:9300"
+      - "9200:9200"
+      - "9300:9300"
     expose:
       - "9200"
       - "9300"
@@ -80,8 +80,8 @@ services:
       - ./elasticsearch/config/elasticsearch.yml:/usr/share/elasticsearch/config/elasticsearch.yml:ro
       - ./_data/elastic4:/usr/share/elasticsearch/data
     ports:
-      - "127.0.0.1:9200:9200"
-      - "127.0.0.1:9300:9300"
+      - "9200:9200"
+      - "9300:9300"
     expose:
       - "9200"
       - "9300"
