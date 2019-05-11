@@ -10,7 +10,7 @@ services:
     container_name: es_master_1
     volumes:
       - ./elasticsearch/config/elasticsearch.yml:/usr/share/elasticsearch/config/elasticsearch.yml:ro
-      - ./elasticsearch/config/log4j2.properties:/usr/share/elasticsearch/config/log4j2.properties:ro
+#      - ./elasticsearch/config/log4j2.properties:/usr/share/elasticsearch/config/log4j2.properties:ro
 #      - ./_data/elastic1:/usr/share/elasticsearch/data
       - esdata1:/usr/share/elasticsearch/data
       - eslogs:/var/log/elasticsearch
@@ -44,7 +44,7 @@ services:
     container_name: es_master_2
     volumes:
       - ./elasticsearch/config/elasticsearch.yml:/usr/share/elasticsearch/config/elasticsearch.yml:ro
-      - ./elasticsearch/config/log4j2.properties:/usr/share/elasticsearch/config/log4j2.properties:ro
+#      - ./elasticsearch/config/log4j2.properties:/usr/share/elasticsearch/config/log4j2.properties:ro
       #      - ./_data/elastic1:/usr/share/elasticsearch/data
       - esdata4:/usr/share/elasticsearch/data
       - eslogs:/var/log/elasticsearch
@@ -78,7 +78,7 @@ services:
     container_name: es_master_3
     volumes:
       - ./elasticsearch/config/elasticsearch.yml:/usr/share/elasticsearch/config/elasticsearch.yml:ro
-      - ./elasticsearch/config/log4j2.properties:/usr/share/elasticsearch/config/log4j2.properties:ro
+#      - ./elasticsearch/config/log4j2.properties:/usr/share/elasticsearch/config/log4j2.properties:ro
       #      - ./_data/elastic1:/usr/share/elasticsearch/data
       - esdata5:/usr/share/elasticsearch/data
       - eslogs:/var/log/elasticsearch
@@ -112,7 +112,7 @@ services:
     container_name: es_ingest
     volumes:
       - ./elasticsearch/config/elasticsearch.yml:/usr/share/elasticsearch/config/elasticsearch.yml:ro
-      - ./elasticsearch/config/log4j2.properties:/usr/share/elasticsearch/config/log4j2.properties:ro
+#      - ./elasticsearch/config/log4j2.properties:/usr/share/elasticsearch/config/log4j2.properties:ro
 #      - ./_data/elastic2:/usr/share/elasticsearch/data
       - esdata2:/usr/share/elasticsearch/data
       - eslogs:/var/log/elasticsearch
@@ -140,7 +140,7 @@ services:
     container_name: es_data_1
     volumes:
       - ./elasticsearch/config/elasticsearch.yml:/usr/share/elasticsearch/config/elasticsearch.yml:ro
-      - ./elasticsearch/config/log4j2.properties:/usr/share/elasticsearch/config/log4j2.properties:ro
+#      - ./elasticsearch/config/log4j2.properties:/usr/share/elasticsearch/config/log4j2.properties:ro
 #      - ./_data/elastic3:/usr/share/elasticsearch/data
       - esdata3:/usr/share/elasticsearch/data
       - eslogs:/var/log/elasticsearch
@@ -168,7 +168,7 @@ services:
     container_name: es_data_2
     volumes:
       - ./elasticsearch/config/elasticsearch.yml:/usr/share/elasticsearch/config/elasticsearch.yml:ro
-      - ./elasticsearch/config/log4j2.properties:/usr/share/elasticsearch/config/log4j2.properties:ro
+#      - ./elasticsearch/config/log4j2.properties:/usr/share/elasticsearch/config/log4j2.properties:ro
       #      - ./_data/elastic3:/usr/share/elasticsearch/data
       - esdata5:/usr/share/elasticsearch/data
       - eslogs:/var/log/elasticsearch
