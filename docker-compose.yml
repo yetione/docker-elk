@@ -49,15 +49,15 @@ services:
 #      - ./_data/elastic2:/usr/share/elasticsearch/data
       - esdata2:/usr/share/elasticsearch/data
       - eslogs:/var/log/elasticsearch
-      - node.master=false
-      - node.ingest=true
-      - node.data=true
     environment:
       - cluster.name=docker-cluster
       - bootstrap.memory_lock=true
       - "discovery.zen.ping.unicast.hosts=elasticsearch,elasticsearch22"
       - "ES_JAVA_OPTS=-Xmx512m -Xms512m"
       - node.name=elasticsearch2
+      - node.master=false
+      - node.ingest=true
+      - node.data=true
     ulimits:
       nproc: 65535
       memlock:
