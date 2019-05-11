@@ -26,6 +26,10 @@ services:
       - http.cors.allow-origin=/https?:\/\/elasticsearch[0-9]*(:[0-9]+)?/
       - "ES_JAVA_OPTS=-Xms512m -Xmx512m"
       - node.name=elasticsearchMaster
+      - eslogs:/var/log/elasticsearch
+      - node.master=true
+      - node.ingest=false
+      - node.data=false
     ulimits:
       nproc: 65535
       memlock:
@@ -44,6 +48,10 @@ services:
       - ./elasticsearch/config/log4j2.properties:/usr/share/elasticsearch/config/log4j2.properties:ro
 #      - ./_data/elastic2:/usr/share/elasticsearch/data
       - esdata2:/usr/share/elasticsearch/data
+      - eslogs:/var/log/elasticsearch
+      - node.master=true
+      - node.ingest=true
+      - node.data=false
     environment:
       - cluster.name=docker-cluster
       - bootstrap.memory_lock=true
@@ -68,12 +76,16 @@ services:
       - ./elasticsearch/config/log4j2.properties:/usr/share/elasticsearch/config/log4j2.properties:ro
 #      - ./_data/elastic3:/usr/share/elasticsearch/data
       - esdata3:/usr/share/elasticsearch/data
+      - eslogs:/var/log/elasticsearch
     environment:
       - cluster.name=docker-cluster
       - bootstrap.memory_lock=true
       - "discovery.zen.ping.unicast.hosts=elasticsearch"
       - "ES_JAVA_OPTS=-Xmx512m -Xms512m"
       - node.name=elasticsearch3
+      - node.master=false
+      - node.ingest=false
+      - node.data=true
     ulimits:
       nproc: 65535
       memlock:
