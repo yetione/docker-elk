@@ -110,6 +110,7 @@ services:
       context: kibana/
       args:
         ELK_VERSION: $ELK_VERSION
+    container_name: kibana
     volumes:
       - ./kibana/config/:/usr/share/kibana/config:ro
     ports:
