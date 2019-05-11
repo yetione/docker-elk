@@ -1,0 +1,9 @@
+network.host: 0.0.0.0
+cluster.name: "docker-cluster"
+bootstrap.memory_lock: true
+http.cors.allow-origin: /https?:\/\/es[a-z0-9_]*(:[0-9]+)?/
+node.master: true
+node.ingest: false
+node.data: false
+discovery.zen.minimum_master_nodes: 3
+path.logs: /var/log/elasticsearch
