@@ -191,40 +191,40 @@ services:
         hard: -1
     networks:
       - elk
-  es_master_4:
-    build:
-      context: elasticsearch/
-      args:
-        ELK_VERSION: $ELK_VERSION
-    container_name: es_master_4
-    volumes:
-      - ./elasticsearch/config/elasticsearch.yml:/usr/share/elasticsearch/config/elasticsearch.yml:ro
-      - ./elasticsearch/config/log4j2.properties:/usr/share/elasticsearch/config/log4j2.properties:ro
-      #      - ./_data/elastic1:/usr/share/elasticsearch/data
-      - esdata5:/usr/share/elasticsearch/data
-      - eslogs:/var/log/elasticsearch
-    ports:
-      - "127.0.0.1:9203:9200"
-      - "127.0.0.1:9303:9300"
-    expose:
-      - "9203"
-      - "9303"
-    environment:
-      - cluster.name=docker-cluster
-      - bootstrap.memory_lock=true
-      - http.cors.allow-origin=/https?:\/\/es[a-z0-9_]*(:[0-9]+)?/
-      - "ES_JAVA_OPTS=-Xms512m -Xmx512m"
-      - node.name=es_master_4
-      - node.master=true
-      - node.ingest=false
-      - node.data=false
-    ulimits:
-      nproc: 65535
-      memlock:
-        soft: -1
-        hard: -1
-    networks:
-      - elk
+#  es_master_4:
+#    build:
+#      context: elasticsearch/
+#      args:
+#        ELK_VERSION: $ELK_VERSION
+#    container_name: es_master_4
+#    volumes:
+#      - ./elasticsearch/config/elasticsearch.yml:/usr/share/elasticsearch/config/elasticsearch.yml:ro
+#      - ./elasticsearch/config/log4j2.properties:/usr/share/elasticsearch/config/log4j2.properties:ro
+#      #      - ./_data/elastic1:/usr/share/elasticsearch/data
+#      - esdata5:/usr/share/elasticsearch/data
+#      - eslogs:/var/log/elasticsearch
+#    ports:
+#      - "127.0.0.1:9203:9200"
+#      - "127.0.0.1:9303:9300"
+#    expose:
+#      - "9203"
+#      - "9303"
+#    environment:
+#      - cluster.name=docker-cluster
+#      - bootstrap.memory_lock=true
+#      - http.cors.allow-origin=/https?:\/\/es[a-z0-9_]*(:[0-9]+)?/
+#      - "ES_JAVA_OPTS=-Xms512m -Xmx512m"
+#      - node.name=es_master_4
+#      - node.master=true
+#      - node.ingest=false
+#      - node.data=false
+#    ulimits:
+#      nproc: 65535
+#      memlock:
+#        soft: -1
+#        hard: -1
+#    networks:
+#      - elk
 #  elasticsearch4:
 #    build:
 #      context: elasticsearch/
