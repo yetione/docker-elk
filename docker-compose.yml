@@ -121,7 +121,7 @@ services:
       - node.master=true
       - node.ingest=false
       - node.data=false
-      - cluster.remote.connect: false
+      - cluster.remote.connect=false
     ulimits:
       nproc: 65535
       memlock:
