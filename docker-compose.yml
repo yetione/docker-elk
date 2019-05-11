@@ -49,7 +49,7 @@ services:
 #      - ./_data/elastic2:/usr/share/elasticsearch/data
       - esdata2:/usr/share/elasticsearch/data
       - eslogs:/var/log/elasticsearch
-      - node.master=true
+      - node.master=false
       - node.ingest=true
       - node.data=false
     environment:
