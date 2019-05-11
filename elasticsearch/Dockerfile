@@ -4,4 +4,4 @@ FROM docker.elastic.co/elasticsearch/elasticsearch:${ELK_VERSION}
 
 # Add your elasticsearch plugins setup here
 # Example: RUN elasticsearch-plugin install analysis-icu
-RUN mkdir -p /var/log/elasticsearch && chown -R www-data:www-data /var/log/php
+RUN mkdir -p /var/log/elasticsearch && chown -R 1000:1000 /var/log/elasticsearch
