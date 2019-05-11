@@ -55,7 +55,7 @@ services:
     environment:
       - cluster.name=docker-cluster
       - bootstrap.memory_lock=true
-      - "discovery.zen.ping.unicast.hosts=elasticsearch"
+      - "discovery.zen.ping.unicast.hosts=elasticsearch,elasticsearch22"
       - "ES_JAVA_OPTS=-Xmx512m -Xms512m"
       - node.name=elasticsearch2
     ulimits:
@@ -80,7 +80,7 @@ services:
     environment:
       - cluster.name=docker-cluster
       - bootstrap.memory_lock=true
-      - "discovery.zen.ping.unicast.hosts=elasticsearch"
+      - "discovery.zen.ping.unicast.hosts=elasticsearch,elasticsearch22"
       - "ES_JAVA_OPTS=-Xmx512m -Xms512m"
       - node.name=elasticsearch3
       - node.master=false
