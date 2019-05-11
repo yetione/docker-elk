@@ -29,91 +29,6 @@ services:
       - node.master=true
       - node.ingest=false
       - node.data=false
-      - cluster.remote.connect=false
-    ulimits:
-      nproc: 65535
-      memlock:
-        soft: -1
-        hard: -1
-    networks:
-      - elk
-  es_ingest:
-    build:
-      context: elasticsearch/
-      args:
-        ELK_VERSION: $ELK_VERSION
-    container_name: es_ingest
-    volumes:
-      - ./elasticsearch/config/elasticsearch.yml:/usr/share/elasticsearch/config/elasticsearch.yml:ro
-      - ./elasticsearch/config/log4j2.properties:/usr/share/elasticsearch/config/log4j2.properties:ro
-#      - ./_data/elastic2:/usr/share/elasticsearch/data
-      - esdata2:/usr/share/elasticsearch/data
-      - eslogs:/var/log/elasticsearch
-    environment:
-      - cluster.name=docker-cluster
-      - bootstrap.memory_lock=true
-      - "discovery.zen.ping.unicast.hosts=es_master_1,es_master_2,es_master_3,es_master_4"
-      - "ES_JAVA_OPTS=-Xmx512m -Xms512m"
-      - node.name=es_ingest
-      - node.master=false
-      - node.ingest=true
-      - node.data=true
-    ulimits:
-      nproc: 65535
-      memlock:
-        soft: -1
-        hard: -1
-    networks:
-      - elk
-  es_data_1:
-    build:
-      context: elasticsearch/
-      args:
-        ELK_VERSION: $ELK_VERSION
-    container_name: es_data_1
-    volumes:
-      - ./elasticsearch/config/elasticsearch.yml:/usr/share/elasticsearch/config/elasticsearch.yml:ro
-      - ./elasticsearch/config/log4j2.properties:/usr/share/elasticsearch/config/log4j2.properties:ro
-#      - ./_data/elastic3:/usr/share/elasticsearch/data
-      - esdata3:/usr/share/elasticsearch/data
-      - eslogs:/var/log/elasticsearch
-    environment:
-      - cluster.name=docker-cluster
-      - bootstrap.memory_lock=true
-      - "discovery.zen.ping.unicast.hosts=es_master_1,es_master_2,es_master_3,es_master_4"
-      - "ES_JAVA_OPTS=-Xmx512m -Xms512m"
-      - node.name=es_data_1
-      - node.master=false
-      - node.ingest=false
-      - node.data=true
-    ulimits:
-      nproc: 65535
-      memlock:
-        soft: -1
-        hard: -1
-    networks:
-      - elk
-  es_data_2:
-    build:
-      context: elasticsearch/
-      args:
-        ELK_VERSION: $ELK_VERSION
-    container_name: es_data_2
-    volumes:
-      - ./elasticsearch/config/elasticsearch.yml:/usr/share/elasticsearch/config/elasticsearch.yml:ro
-      - ./elasticsearch/config/log4j2.properties:/usr/share/elasticsearch/config/log4j2.properties:ro
-      #      - ./_data/elastic3:/usr/share/elasticsearch/data
-      - esdata5:/usr/share/elasticsearch/data
-      - eslogs:/var/log/elasticsearch
-    environment:
-      - cluster.name=docker-cluster
-      - bootstrap.memory_lock=true
-      - "discovery.zen.ping.unicast.hosts=es_master_1,es_master_2,es_master_3,es_master_4"
-      - "ES_JAVA_OPTS=-Xmx512m -Xms512m"
-      - node.name=es_data_2
-      - node.master=false
-      - node.ingest=false
-      - node.data=true
     ulimits:
       nproc: 65535
       memlock:
@@ -148,7 +63,6 @@ services:
       - node.master=true
       - node.ingest=false
       - node.data=false
-      - cluster.remote.connect=false
     ulimits:
       nproc: 65535
       memlock:
@@ -183,7 +97,6 @@ services:
       - node.master=true
       - node.ingest=false
       - node.data=false
-      - cluster.remote.connect=false
     ulimits:
       nproc: 65535
       memlock:
@@ -191,6 +104,91 @@ services:
         hard: -1
     networks:
       - elk
+  es_ingest:
+    build:
+      context: elasticsearch/
+      args:
+        ELK_VERSION: $ELK_VERSION
+    container_name: es_ingest
+    volumes:
+      - ./elasticsearch/config/elasticsearch.yml:/usr/share/elasticsearch/config/elasticsearch.yml:ro
+      - ./elasticsearch/config/log4j2.properties:/usr/share/elasticsearch/config/log4j2.properties:ro
+#      - ./_data/elastic2:/usr/share/elasticsearch/data
+      - esdata2:/usr/share/elasticsearch/data
+      - eslogs:/var/log/elasticsearch
+    environment:
+      - cluster.name=docker-cluster
+      - bootstrap.memory_lock=true
+      - "discovery.zen.ping.unicast.hosts=es_master_1,es_master_2,es_master_3"
+      - "ES_JAVA_OPTS=-Xmx512m -Xms512m"
+      - node.name=es_ingest
+      - node.master=false
+      - node.ingest=true
+      - node.data=true
+    ulimits:
+      nproc: 65535
+      memlock:
+        soft: -1
+        hard: -1
+    networks:
+      - elk
+  es_data_1:
+    build:
+      context: elasticsearch/
+      args:
+        ELK_VERSION: $ELK_VERSION
+    container_name: es_data_1
+    volumes:
+      - ./elasticsearch/config/elasticsearch.yml:/usr/share/elasticsearch/config/elasticsearch.yml:ro
+      - ./elasticsearch/config/log4j2.properties:/usr/share/elasticsearch/config/log4j2.properties:ro
+#      - ./_data/elastic3:/usr/share/elasticsearch/data
+      - esdata3:/usr/share/elasticsearch/data
+      - eslogs:/var/log/elasticsearch
+    environment:
+      - cluster.name=docker-cluster
+      - bootstrap.memory_lock=true
+      - "discovery.zen.ping.unicast.hosts=es_master_1,es_master_2,es_master_3"
+      - "ES_JAVA_OPTS=-Xmx512m -Xms512m"
+      - node.name=es_data_1
+      - node.master=false
+      - node.ingest=false
+      - node.data=true
+    ulimits:
+      nproc: 65535
+      memlock:
+        soft: -1
+        hard: -1
+    networks:
+      - elk
+  es_data_2:
+    build:
+      context: elasticsearch/
+      args:
+        ELK_VERSION: $ELK_VERSION
+    container_name: es_data_2
+    volumes:
+      - ./elasticsearch/config/elasticsearch.yml:/usr/share/elasticsearch/config/elasticsearch.yml:ro
+      - ./elasticsearch/config/log4j2.properties:/usr/share/elasticsearch/config/log4j2.properties:ro
+      #      - ./_data/elastic3:/usr/share/elasticsearch/data
+      - esdata5:/usr/share/elasticsearch/data
+      - eslogs:/var/log/elasticsearch
+    environment:
+      - cluster.name=docker-cluster
+      - bootstrap.memory_lock=true
+      - "discovery.zen.ping.unicast.hosts=es_master_1,es_master_2,es_master_3"
+      - "ES_JAVA_OPTS=-Xmx512m -Xms512m"
+      - node.name=es_data_2
+      - node.master=false
+      - node.ingest=false
+      - node.data=true
+    ulimits:
+      nproc: 65535
+      memlock:
+        soft: -1
+        hard: -1
+    networks:
+      - elk
+
 #  es_master_4:
 #    build:
 #      context: elasticsearch/
