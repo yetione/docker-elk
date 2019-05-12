@@ -14,6 +14,7 @@ services:
       - ./elasticsearch/master/jvm.options:/usr/share/elasticsearch/config/jvm.options:ro
       - master_1:/usr/share/elasticsearch/data
       - log:/var/log/elasticsearch
+      - master_1_jvm:/var/log/jvm
 #    ports:
 #      - "127.0.0.1:9200:9200"
 #      - "127.0.0.1:9300:9300"
@@ -41,6 +42,7 @@ services:
       - ./elasticsearch/master/jvm.options:/usr/share/elasticsearch/config/jvm.options:ro
       - master_2:/usr/share/elasticsearch/data
       - log:/var/log/elasticsearch
+      - master_2_jvm:/var/log/jvm
 #    ports:
 #      - "127.0.0.1:9201:9200"
 #      - "127.0.0.1:9301:9300"
@@ -68,6 +70,7 @@ services:
       - ./elasticsearch/master/jvm.options:/usr/share/elasticsearch/config/jvm.options:ro
       - master_3:/usr/share/elasticsearch/data
       - log:/var/log/elasticsearch
+      - master_3_jvm:/var/log/jvm
 #    ports:
 #      - "127.0.0.1:9202:9200"
 #      - "127.0.0.1:9302:9300"
@@ -419,4 +422,10 @@ volumes:
   data_10:
     driver: local
   log:
+    driver: local
+  master_1_jvm:
+    driver: local
+  master_2_jvm:
+    driver: local
+  master_3_jvm:
     driver: local
