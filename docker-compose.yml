@@ -139,10 +139,10 @@ services:
       memlock:
         soft: -1
         hard: -1
-    depends_on:
-      - es_master_1
-      - es_master_2
-      - es_master_3
+#    depends_on:
+#      - es_master_1
+#      - es_master_2
+#      - es_master_3
 #    ports:
 #      - "9200"
 #      - "9300"
@@ -170,10 +170,10 @@ services:
       memlock:
         soft: -1
         hard: -1
-    depends_on:
-      - es_master_1
-      - es_master_2
-      - es_master_3
+#    depends_on:
+#      - es_master_1
+#      - es_master_2
+#      - es_master_3
 
     networks:
       - elk
@@ -202,10 +202,10 @@ services:
       memlock:
         soft: -1
         hard: -1
-    depends_on:
-      - es_master_1
-      - es_master_2
-      - es_master_3
+#    depends_on:
+#      - es_master_1
+#      - es_master_2
+#      - es_master_3
 
     networks:
       - elk
@@ -234,10 +234,10 @@ services:
       memlock:
         soft: -1
         hard: -1
-    depends_on:
-      - es_master_1
-      - es_master_2
-      - es_master_3
+#    depends_on:
+#      - es_master_1
+#      - es_master_2
+#      - es_master_3
     expose:
       - "9200"
       - "9300"
@@ -265,10 +265,10 @@ services:
       memlock:
         soft: -1
         hard: -1
-    depends_on:
-      - es_master_1
-      - es_master_2
-      - es_master_3
+#    depends_on:
+#      - es_master_1
+#      - es_master_2
+#      - es_master_3
     expose:
       - "9200"
       - "9300"
