@@ -5,7 +5,7 @@ http.cors.allow-origin: /https?:\/\/es[a-z0-9_]*(:[0-9]+)?/
 node.master: false
 node.ingest: false
 node.data: true
-discovery.zen.minimum_master_nodes: 3
+discovery.zen.minimum_master_nodes: 2
 path.logs: /var/log/elasticsearch
 discovery.zen.ping.unicast.hosts: ["es_master_1", "es_master_2", "es_master_3"]
 gateway.recover_after_nodes: 8
