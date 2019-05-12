@@ -13,7 +13,7 @@ http.cors.allow-origin: /https?:\/\/es[a-z0-9_]*(:[0-9]+)?/
 
 discovery.zen.minimum_master_nodes: 2
 discovery.zen.fd.ping_timeout: 60s
-discovery.zen.ping.unicast.hosts: ["es_master_1:9300", "es_master_2:9301", "es_master_3:9302"]
+discovery.zen.ping.unicast.hosts: ["es_master_1", "es_master_2", "es_master_3"]
 #discovery.seed_hosts:
 #  - es_master_1
 #  - es_master_2
