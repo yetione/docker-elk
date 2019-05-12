@@ -28,5 +28,5 @@ path.logs: /var/log/elasticsearch
 
 gateway.recover_after_time: 3m
 #gateway.recover_after_nodes: 5
-gateway.recover_after_master_nodes: 3
-gateway.recover_after_data_nodes: 5
+#gateway.recover_after_master_nodes: 3
+#gateway.recover_after_data_nodes: 5
