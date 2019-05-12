@@ -163,7 +163,7 @@ services:
       - ./kibana/config/:/usr/share/kibana/config:ro
     ports:
       - "127.0.0.1:5601:5601"
-    environment:
+#    environment:
 #      - elasticsearch.url=http://es_master_1:9200
 #      - elasticsearch.hosts="http://es_master_1:9200",http://es_master_2:9201,http://es_master_2:9202"
     networks:
