@@ -102,6 +102,10 @@ services:
       memlock:
         soft: -1
         hard: -1
+    links:
+      - es_master_1
+      - es_master_2
+      - es_master_3
     depends_on:
       - es_master_1
       - es_master_2
@@ -127,6 +131,10 @@ services:
       memlock:
         soft: -1
         hard: -1
+    links:
+      - es_master_1
+      - es_master_2
+      - es_master_3
     depends_on:
       - es_master_1
       - es_master_2
@@ -152,6 +160,10 @@ services:
       memlock:
         soft: -1
         hard: -1
+    links:
+      - es_master_1
+      - es_master_2
+      - es_master_3
     depends_on:
       - es_master_1
       - es_master_2
@@ -177,6 +189,10 @@ services:
       memlock:
         soft: -1
         hard: -1
+    links:
+      - es_master_1
+      - es_master_2
+      - es_master_3
     depends_on:
       - es_master_1
       - es_master_2
@@ -202,6 +218,10 @@ services:
       memlock:
         soft: -1
         hard: -1
+    links:
+      - es_master_1
+      - es_master_2
+      - es_master_3
     depends_on:
       - es_master_1
       - es_master_2
@@ -227,6 +247,10 @@ services:
       memlock:
         soft: -1
         hard: -1
+    links:
+      - es_master_1
+      - es_master_2
+      - es_master_3
     depends_on:
       - es_master_1
       - es_master_2
@@ -252,6 +276,10 @@ services:
       memlock:
         soft: -1
         hard: -1
+    links:
+      - es_master_1
+      - es_master_2
+      - es_master_3
     depends_on:
       - es_master_1
       - es_master_2
@@ -277,6 +305,10 @@ services:
       memlock:
         soft: -1
         hard: -1
+    links:
+      - es_master_1
+      - es_master_2
+      - es_master_3
     depends_on:
       - es_master_1
       - es_master_2
@@ -302,6 +334,10 @@ services:
       memlock:
         soft: -1
         hard: -1
+    links:
+      - es_master_1
+      - es_master_2
+      - es_master_3
     depends_on:
       - es_master_1
       - es_master_2
@@ -329,6 +365,10 @@ services:
         hard: -1
     networks:
       - elk
+    links:
+      - es_master_1
+      - es_master_2
+      - es_master_3
     depends_on:
       - es_master_1
       - es_master_2
@@ -355,6 +395,10 @@ services:
     networks:
       - elk
     depends_on:
+      - es_master_1
+      - es_master_2
+      - es_master_3
+    links:
       - es_master_1
       - es_master_2
       - es_master_3

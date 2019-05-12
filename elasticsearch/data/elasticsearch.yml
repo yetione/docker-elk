@@ -7,5 +7,5 @@ node.ingest: false
 node.data: true
 discovery.zen.minimum_master_nodes: 2
 path.logs: /var/log/elasticsearch
-discovery.zen.ping.unicast.hosts: ["es_master_1", "es_master_2:9201", "es_master_3:9202"]
+discovery.zen.ping.unicast.hosts: ["es_master_1", "es_master_2", "es_master_3"]
 gateway.recover_after_nodes: 8
