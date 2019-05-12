@@ -1,9 +1,9 @@
 network.host: 0.0.0.0
 cluster.name: "docker-cluster"
 
-node.master: false
+node.master: true
 node.ingest: true
-node.data: true
+node.data: false
 
 bootstrap.memory_lock: true
 
