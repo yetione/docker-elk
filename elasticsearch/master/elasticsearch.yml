@@ -5,10 +5,10 @@ node.ingest: false
 node.data: false
 
 cluster.name: "docker-cluster"
-cluster.initial_master_nodes:
-  - es_master_1
-  - es_master_2
-  - es_master_3
+#cluster.initial_master_nodes:
+#  - es_master_1
+#  - es_master_2
+#  - es_master_3
 
 #discovery.seed_hosts:
 #  - es_master_1
