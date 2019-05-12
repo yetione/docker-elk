@@ -10,8 +10,3 @@ discovery.zen.fd.ping_timeout: 60s
 path.logs: /var/log/elasticsearch
 discovery.zen.ping.unicast.hosts: ["es_master_1", "es_master_2", "es_master_3"]
 #gateway.recover_after_nodes: 5
-gateway:
-  recover_after_time: 2m
-  recover_after_nodes: 5
-  recover_after_master_nodes: 1
-  recover_after_data_nodes: 4
