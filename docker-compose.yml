@@ -102,6 +102,10 @@ services:
       memlock:
         soft: -1
         hard: -1
+    depends_on:
+      - es_master_1
+      - es_master_2
+      - es_master_3
     networks:
       - elk
   es_data_1:
@@ -123,6 +127,10 @@ services:
       memlock:
         soft: -1
         hard: -1
+    depends_on:
+      - es_master_1
+      - es_master_2
+      - es_master_3
     networks:
       - elk
   es_data_2:
@@ -144,6 +152,10 @@ services:
       memlock:
         soft: -1
         hard: -1
+    depends_on:
+      - es_master_1
+      - es_master_2
+      - es_master_3
     networks:
       - elk
   es_data_3:
@@ -165,6 +177,10 @@ services:
       memlock:
         soft: -1
         hard: -1
+    depends_on:
+      - es_master_1
+      - es_master_2
+      - es_master_3
     networks:
       - elk
   es_data_4:
@@ -186,6 +202,10 @@ services:
       memlock:
         soft: -1
         hard: -1
+    depends_on:
+      - es_master_1
+      - es_master_2
+      - es_master_3
     networks:
       - elk
   es_data_5:
@@ -207,6 +227,10 @@ services:
       memlock:
         soft: -1
         hard: -1
+    depends_on:
+      - es_master_1
+      - es_master_2
+      - es_master_3
     networks:
       - elk
   es_data_6:
@@ -228,6 +252,10 @@ services:
       memlock:
         soft: -1
         hard: -1
+    depends_on:
+      - es_master_1
+      - es_master_2
+      - es_master_3
     networks:
       - elk
   es_data_7:
@@ -249,6 +277,10 @@ services:
       memlock:
         soft: -1
         hard: -1
+    depends_on:
+      - es_master_1
+      - es_master_2
+      - es_master_3
     networks:
       - elk
   es_data_8:
@@ -270,6 +302,10 @@ services:
       memlock:
         soft: -1
         hard: -1
+    depends_on:
+      - es_master_1
+      - es_master_2
+      - es_master_3
     networks:
       - elk
   es_data_9:
@@ -293,6 +329,10 @@ services:
         hard: -1
     networks:
       - elk
+    depends_on:
+      - es_master_1
+      - es_master_2
+      - es_master_3
   es_data_10:
     build:
       context: elasticsearch/
@@ -314,6 +354,10 @@ services:
         hard: -1
     networks:
       - elk
+    depends_on:
+      - es_master_1
+      - es_master_2
+      - es_master_3
   kibana:
     build:
       context: kibana/
