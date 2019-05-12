@@ -20,8 +20,8 @@ services:
       - "127.0.0.1:9200:9200"
       - "127.0.0.1:9300:9300"
     expose:
-      - "9200"
-      - "9300"
+      - "9200:9200"
+      - "9300:9300"
     environment:
       - node.name=es_master_1
     ulimits:
@@ -48,8 +48,8 @@ services:
       - "127.0.0.1:9201:9200"
       - "127.0.0.1:9301:9300"
     expose:
-      - "9201"
-      - "9301"
+      - "9201:9200"
+      - "9301:9300"
     environment:
       - node.name=es_master_2
     ulimits:
@@ -76,8 +76,8 @@ services:
       - "127.0.0.1:9202:9200"
       - "127.0.0.1:9302:9300"
     expose:
-      - "9202"
-      - "9302"
+      - "9202:9200"
+      - "9302:9300"
     environment:
       - node.name=es_master_3
     ulimits:
