@@ -457,10 +457,10 @@ services:
       - "127.0.0.1:5601:5601"
     networks:
       - elk
-    depends_on:
-      - es_master_1
-      - es_master_2
-      - es_master_3
+#    depends_on:
+#      - es_master_1
+#      - es_master_2
+#      - es_master_3
 #    links:
 #      - es_master_1
 #      - es_master_2
