@@ -177,7 +177,7 @@ services:
       - ./elasticsearch/data/elasticsearch.yml:/usr/share/elasticsearch/config/elasticsearch.yml:ro
       - ./elasticsearch/data/log4j2.properties:/usr/share/elasticsearch/config/log4j2.properties:ro
       - ./elasticsearch/data/jvm.options:/usr/share/elasticsearch/config/jvm.options:ro
-      - data_3:/usr/share/elasticsearch/data
+      - data_4:/usr/share/elasticsearch/data
       - log:/var/log/elasticsearch
     environment:
       - node.name=es_data_4
@@ -198,7 +198,7 @@ services:
       - ./elasticsearch/data/elasticsearch.yml:/usr/share/elasticsearch/config/elasticsearch.yml:ro
       - ./elasticsearch/data/log4j2.properties:/usr/share/elasticsearch/config/log4j2.properties:ro
       - ./elasticsearch/data/jvm.options:/usr/share/elasticsearch/config/jvm.options:ro
-      - data_3:/usr/share/elasticsearch/data
+      - data_5:/usr/share/elasticsearch/data
       - log:/var/log/elasticsearch
     environment:
       - node.name=es_data_5
@@ -219,7 +219,7 @@ services:
       - ./elasticsearch/data/elasticsearch.yml:/usr/share/elasticsearch/config/elasticsearch.yml:ro
       - ./elasticsearch/data/log4j2.properties:/usr/share/elasticsearch/config/log4j2.properties:ro
       - ./elasticsearch/data/jvm.options:/usr/share/elasticsearch/config/jvm.options:ro
-      - data_3:/usr/share/elasticsearch/data
+      - data_6:/usr/share/elasticsearch/data
       - log:/var/log/elasticsearch
     environment:
       - node.name=es_data_6
@@ -240,7 +240,7 @@ services:
       - ./elasticsearch/data/elasticsearch.yml:/usr/share/elasticsearch/config/elasticsearch.yml:ro
       - ./elasticsearch/data/log4j2.properties:/usr/share/elasticsearch/config/log4j2.properties:ro
       - ./elasticsearch/data/jvm.options:/usr/share/elasticsearch/config/jvm.options:ro
-      - data_3:/usr/share/elasticsearch/data
+      - data_7:/usr/share/elasticsearch/data
       - log:/var/log/elasticsearch
     environment:
       - node.name=es_data_7
@@ -261,7 +261,7 @@ services:
       - ./elasticsearch/data/elasticsearch.yml:/usr/share/elasticsearch/config/elasticsearch.yml:ro
       - ./elasticsearch/data/log4j2.properties:/usr/share/elasticsearch/config/log4j2.properties:ro
       - ./elasticsearch/data/jvm.options:/usr/share/elasticsearch/config/jvm.options:ro
-      - data_3:/usr/share/elasticsearch/data
+      - data_8:/usr/share/elasticsearch/data
       - log:/var/log/elasticsearch
     environment:
       - node.name=es_data_8
@@ -282,7 +282,7 @@ services:
       - ./elasticsearch/data/elasticsearch.yml:/usr/share/elasticsearch/config/elasticsearch.yml:ro
       - ./elasticsearch/data/log4j2.properties:/usr/share/elasticsearch/config/log4j2.properties:ro
       - ./elasticsearch/data/jvm.options:/usr/share/elasticsearch/config/jvm.options:ro
-      - data_3:/usr/share/elasticsearch/data
+      - data_9:/usr/share/elasticsearch/data
       - log:/var/log/elasticsearch
     environment:
       - node.name=es_data_9
@@ -303,7 +303,7 @@ services:
       - ./elasticsearch/data/elasticsearch.yml:/usr/share/elasticsearch/config/elasticsearch.yml:ro
       - ./elasticsearch/data/log4j2.properties:/usr/share/elasticsearch/config/log4j2.properties:ro
       - ./elasticsearch/data/jvm.options:/usr/share/elasticsearch/config/jvm.options:ro
-      - data_3:/usr/share/elasticsearch/data
+      - data_10:/usr/share/elasticsearch/data
       - log:/var/log/elasticsearch
     environment:
       - node.name=es_data_10
