@@ -5,6 +5,6 @@ http.cors.allow-origin: /https?:\/\/es[a-z0-9_]*(:[0-9]+)?/
 node.master: true
 node.ingest: false
 node.data: false
-discovery.zen.minimum_master_nodes: 2
+# discovery.zen.minimum_master_nodes: 2
 path.logs: /var/log/elasticsearch
-gateway.recover_after_nodes: 8
+gateway.recover_after_nodes: 5
