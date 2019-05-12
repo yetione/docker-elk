@@ -4,4 +4,9 @@
 #
 server.name: kibana
 server.host: "0"
-elasticsearch.hosts: ["http://es_master_1:9200", "http://es_master_2:9201", "http://es_master_3:9202"]
+elasticsearch.hosts:
+  - "http://es_master_1:9200"
+  - "http://es_master_2:9200"
+  - "http://es_master_2:9201"
+  - "http://es_master_3:9200"
+  - "http://es_master_3:9201"
