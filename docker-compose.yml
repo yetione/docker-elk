@@ -72,8 +72,8 @@ services:
 #      - "127.0.0.1:9202:9200"
 #      - "127.0.0.1:9302:9300"
     expose:
-      - "9202:9200"
-      - "9302:9300"
+      - "9202"
+      - "9302"
     environment:
       - node.name=es_master_3
     ulimits:
@@ -186,3 +186,5 @@ volumes:
     driver: local
   log:
     driver: local
+    - type: volume
+      source: ./_data/logs
