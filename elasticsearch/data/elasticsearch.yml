@@ -6,7 +6,7 @@ node.master: false
 node.ingest: false
 node.data: true
 discovery.zen.minimum_master_nodes: 1
-discovery.zen.fd.ping_timeout: 30s
+discovery.zen.fd.ping_timeout: 60s
 path.logs: /var/log/elasticsearch
 discovery.zen.ping.unicast.hosts: ["es_master_1", "es_master_2", "es_master_3"]
-gateway.recover_after_nodes: 5
+#gateway.recover_after_nodes: 5
