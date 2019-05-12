@@ -186,5 +186,5 @@ volumes:
     driver: local
   log:
     driver: local
-    - type: volume
-      source: ./_data/logs
+    type: volume
+    source: ./_data/logs
