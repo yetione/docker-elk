@@ -22,8 +22,6 @@ services:
       - "9300"
     environment:
       - node.name=es_master_1
-      - http.port=9200
-      - transport.port=9300
     ulimits:
       nproc: 65535
       memlock:
@@ -44,15 +42,13 @@ services:
       - master_2:/usr/share/elasticsearch/data
       - log:/var/log/elasticsearch
     ports:
-      - "127.0.0.1:9201:9201"
-      - "127.0.0.1:9301:9301"
+      - "127.0.0.1:9201:9200"
+      - "127.0.0.1:9301:9300"
     expose:
-      - "9201"
-      - "9301"
+      - "9200"
+      - "9300"
     environment:
       - node.name=es_master_2
-      - http.port=9201
-      - transport.port=9301
     ulimits:
       nproc: 65535
       memlock:
@@ -73,15 +69,13 @@ services:
       - master_3:/usr/share/elasticsearch/data
       - log:/var/log/elasticsearch
     ports:
-      - "127.0.0.1:9202:9202"
-      - "127.0.0.1:9302:9302"
+      - "127.0.0.1:9202:9200"
+      - "127.0.0.1:9302:9300"
     expose:
       - "9202"
       - "9302"
     environment:
       - node.name=es_master_3
-      - http.port=9202
-      - transport.port=9302
     ulimits:
       nproc: 65535
       memlock:
@@ -163,9 +157,6 @@ services:
       - ./kibana/config/:/usr/share/kibana/config:ro
     ports:
       - "127.0.0.1:5601:5601"
-#    environment:
-#      - elasticsearch.url=http://es_master_1:9200
-#      - elasticsearch.hosts="http://es_master_1:9200",http://es_master_2:9201,http://es_master_2:9202"
     networks:
       - elk
     links:
