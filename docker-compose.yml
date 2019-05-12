@@ -15,12 +15,12 @@ services:
       - master_1:/usr/share/elasticsearch/data
       - log:/var/log/elasticsearch
       - master_1_jvm:/var/log/jvm
-#    ports:
-#      - "127.0.0.1:9200:9200"
-#      - "127.0.0.1:9300:9300"
-    expose:
-      - "9200"
-      - "9300"
+    ports:
+      - "127.0.0.1:9200:9200"
+      - "127.0.0.1:9300:9300"
+#    expose:
+#      - "9200"
+#      - "9300"
     environment:
       - node.name=es_master_1
     ulimits:
