@@ -14,9 +14,9 @@ services:
       - ./elasticsearch/master/jvm.options:/usr/share/elasticsearch/config/jvm.options:ro
       - master_1:/usr/share/elasticsearch/data
       - log:/var/log/elasticsearch
-    ports:
-      - "127.0.0.1:9200:9200"
-      - "127.0.0.1:9300:9300"
+#    ports:
+#      - "127.0.0.1:9200:9200"
+#      - "127.0.0.1:9300:9300"
     expose:
       - "9200"
       - "9300"
@@ -41,9 +41,9 @@ services:
       - ./elasticsearch/master/jvm.options:/usr/share/elasticsearch/config/jvm.options:ro
       - master_2:/usr/share/elasticsearch/data
       - log:/var/log/elasticsearch
-    ports:
-      - "127.0.0.1:9201:9200"
-      - "127.0.0.1:9301:9300"
+#    ports:
+#      - "127.0.0.1:9201:9200"
+#      - "127.0.0.1:9301:9300"
     expose:
       - "9200"
       - "9300"
@@ -68,9 +68,9 @@ services:
       - ./elasticsearch/master/jvm.options:/usr/share/elasticsearch/config/jvm.options:ro
       - master_3:/usr/share/elasticsearch/data
       - log:/var/log/elasticsearch
-    ports:
-      - "127.0.0.1:9202:9200"
-      - "127.0.0.1:9302:9300"
+#    ports:
+#      - "127.0.0.1:9202:9200"
+#      - "127.0.0.1:9302:9300"
     expose:
       - "9200"
       - "9300"
