@@ -19,7 +19,7 @@ services:
       - "127.0.0.1:9300:9300"
 #    expose:
 #      - "9200"
-#      - "9300"1
+#      - "9300"
     environment:
       - node.name=es_master_1
       - http.port=9200
@@ -168,7 +168,7 @@ services:
 #      - elasticsearch.hosts="http://es_master_1:9200",http://es_master_2:9201,http://es_master_2:9202"
     networks:
       - elk
-    depends_on:
+    links:
       - es_master_1
       - es_master_2
       - es_master_3
