@@ -1,4 +1,4 @@
-network.host: 0.0.0.0
+#network.host: 0.0.0.0
 http.port: 9200
 transport.port: 9300
 
@@ -28,4 +28,4 @@ path.logs: /var/log/elasticsearch
 gateway.recover_after_time: 7m
 #gateway.recover_after_nodes: 5
 gateway.recover_after_master_nodes: 3
-gateway.recover_after_data_nodes: 10
+gateway.recover_after_data_nodes: 5
