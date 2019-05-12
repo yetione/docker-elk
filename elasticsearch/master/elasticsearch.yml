@@ -27,6 +27,11 @@ http.cors.allow-origin: /https?:\/\/es[a-z0-9_]*(:[0-9]+)?/
 path.logs: /var/log/elasticsearch
 
 gateway.recover_after_time: 3m
+
+gateway.expected_nodes: 3
+gateway.expected_master_nodes: 3
+gateway.expected_data_nodes: 3
+
 gateway.recover_after_nodes: 6
 gateway.recover_after_master_nodes: 3
 gateway.recover_after_data_nodes: 3
