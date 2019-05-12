@@ -146,7 +146,174 @@ services:
         hard: -1
     networks:
       - elk
-
+  es_data_3:
+    build:
+      context: elasticsearch/
+      args:
+        ELK_VERSION: $ELK_VERSION
+    container_name: es_data_3
+    volumes:
+      - ./elasticsearch/data/elasticsearch.yml:/usr/share/elasticsearch/config/elasticsearch.yml:ro
+      - ./elasticsearch/data/log4j2.properties:/usr/share/elasticsearch/config/log4j2.properties:ro
+      - ./elasticsearch/data/jvm.options:/usr/share/elasticsearch/config/jvm.options:ro
+      - data_3:/usr/share/elasticsearch/data
+      - log:/var/log/elasticsearch
+    environment:
+      - node.name=es_data_3
+    ulimits:
+      nproc: 65535
+      memlock:
+        soft: -1
+        hard: -1
+    networks:
+      - elk
+  es_data_4:
+    build:
+      context: elasticsearch/
+      args:
+        ELK_VERSION: $ELK_VERSION
+    container_name: es_data_4
+    volumes:
+      - ./elasticsearch/data/elasticsearch.yml:/usr/share/elasticsearch/config/elasticsearch.yml:ro
+      - ./elasticsearch/data/log4j2.properties:/usr/share/elasticsearch/config/log4j2.properties:ro
+      - ./elasticsearch/data/jvm.options:/usr/share/elasticsearch/config/jvm.options:ro
+      - data_3:/usr/share/elasticsearch/data
+      - log:/var/log/elasticsearch
+    environment:
+      - node.name=es_data_4
+    ulimits:
+      nproc: 65535
+      memlock:
+        soft: -1
+        hard: -1
+    networks:
+      - elk
+  es_data_5:
+    build:
+      context: elasticsearch/
+      args:
+        ELK_VERSION: $ELK_VERSION
+    container_name: es_data_5
+    volumes:
+      - ./elasticsearch/data/elasticsearch.yml:/usr/share/elasticsearch/config/elasticsearch.yml:ro
+      - ./elasticsearch/data/log4j2.properties:/usr/share/elasticsearch/config/log4j2.properties:ro
+      - ./elasticsearch/data/jvm.options:/usr/share/elasticsearch/config/jvm.options:ro
+      - data_3:/usr/share/elasticsearch/data
+      - log:/var/log/elasticsearch
+    environment:
+      - node.name=es_data_5
+    ulimits:
+      nproc: 65535
+      memlock:
+        soft: -1
+        hard: -1
+    networks:
+      - elk
+  es_data_6:
+    build:
+      context: elasticsearch/
+      args:
+        ELK_VERSION: $ELK_VERSION
+    container_name: es_data_6
+    volumes:
+      - ./elasticsearch/data/elasticsearch.yml:/usr/share/elasticsearch/config/elasticsearch.yml:ro
+      - ./elasticsearch/data/log4j2.properties:/usr/share/elasticsearch/config/log4j2.properties:ro
+      - ./elasticsearch/data/jvm.options:/usr/share/elasticsearch/config/jvm.options:ro
+      - data_3:/usr/share/elasticsearch/data
+      - log:/var/log/elasticsearch
+    environment:
+      - node.name=es_data_6
+    ulimits:
+      nproc: 65535
+      memlock:
+        soft: -1
+        hard: -1
+    networks:
+      - elk
+  es_data_7:
+    build:
+      context: elasticsearch/
+      args:
+        ELK_VERSION: $ELK_VERSION
+    container_name: es_data_7
+    volumes:
+      - ./elasticsearch/data/elasticsearch.yml:/usr/share/elasticsearch/config/elasticsearch.yml:ro
+      - ./elasticsearch/data/log4j2.properties:/usr/share/elasticsearch/config/log4j2.properties:ro
+      - ./elasticsearch/data/jvm.options:/usr/share/elasticsearch/config/jvm.options:ro
+      - data_3:/usr/share/elasticsearch/data
+      - log:/var/log/elasticsearch
+    environment:
+      - node.name=es_data_7
+    ulimits:
+      nproc: 65535
+      memlock:
+        soft: -1
+        hard: -1
+    networks:
+      - elk
+  es_data_8:
+    build:
+      context: elasticsearch/
+      args:
+        ELK_VERSION: $ELK_VERSION
+    container_name: es_data_8
+    volumes:
+      - ./elasticsearch/data/elasticsearch.yml:/usr/share/elasticsearch/config/elasticsearch.yml:ro
+      - ./elasticsearch/data/log4j2.properties:/usr/share/elasticsearch/config/log4j2.properties:ro
+      - ./elasticsearch/data/jvm.options:/usr/share/elasticsearch/config/jvm.options:ro
+      - data_3:/usr/share/elasticsearch/data
+      - log:/var/log/elasticsearch
+    environment:
+      - node.name=es_data_8
+    ulimits:
+      nproc: 65535
+      memlock:
+        soft: -1
+        hard: -1
+    networks:
+      - elk
+  es_data_9:
+    build:
+      context: elasticsearch/
+      args:
+        ELK_VERSION: $ELK_VERSION
+    container_name: es_data_9
+    volumes:
+      - ./elasticsearch/data/elasticsearch.yml:/usr/share/elasticsearch/config/elasticsearch.yml:ro
+      - ./elasticsearch/data/log4j2.properties:/usr/share/elasticsearch/config/log4j2.properties:ro
+      - ./elasticsearch/data/jvm.options:/usr/share/elasticsearch/config/jvm.options:ro
+      - data_3:/usr/share/elasticsearch/data
+      - log:/var/log/elasticsearch
+    environment:
+      - node.name=es_data_9
+    ulimits:
+      nproc: 65535
+      memlock:
+        soft: -1
+        hard: -1
+    networks:
+      - elk
+  es_data_10:
+    build:
+      context: elasticsearch/
+      args:
+        ELK_VERSION: $ELK_VERSION
+    container_name: es_data_10
+    volumes:
+      - ./elasticsearch/data/elasticsearch.yml:/usr/share/elasticsearch/config/elasticsearch.yml:ro
+      - ./elasticsearch/data/log4j2.properties:/usr/share/elasticsearch/config/log4j2.properties:ro
+      - ./elasticsearch/data/jvm.options:/usr/share/elasticsearch/config/jvm.options:ro
+      - data_3:/usr/share/elasticsearch/data
+      - log:/var/log/elasticsearch
+    environment:
+      - node.name=es_data_10
+    ulimits:
+      nproc: 65535
+      memlock:
+        soft: -1
+        hard: -1
+    networks:
+      - elk
   kibana:
     build:
       context: kibana/
@@ -182,6 +349,20 @@ volumes:
   data_2:
     driver: local
   data_3:
+    driver: local
+  data_4:
+    driver: local
+  data_5:
+    driver: local
+  data_6:
+    driver: local
+  data_7:
+    driver: local
+  data_8:
+    driver: local
+  data_9:
+    driver: local
+  data_10:
     driver: local
   log:
     driver: local
