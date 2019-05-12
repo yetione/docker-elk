@@ -1,5 +1,5 @@
 #network.host: _eth0_
-http.host: 0.0.0.0
+network.host: 0.0.0.0
 http.port: 9200
 transport.port: 9300
 
