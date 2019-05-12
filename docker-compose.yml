@@ -16,8 +16,8 @@ services:
       - log:/var/log/elasticsearch
       - master_1_jvm:/var/log/jvm
     ports:
-      - "9200:9200"
-      - "9300:9300"
+      - "9200"
+      - "9300"
 #    expose:
 #      - "9200"
 #      - "9300"
@@ -55,8 +55,8 @@ services:
       - log:/var/log/elasticsearch
       - master_2_jvm:/var/log/jvm
     ports:
-      - "9201:9200"
-      - "9301:9300"
+      - "9200"
+      - "9300"
 #    expose:
 #      - "9200"
 #      - "9300"
@@ -95,8 +95,8 @@ services:
       - master_3_jvm:/var/log/jvm
 
     ports:
-      - "9202:9200"
-      - "9302:9300"
+      - "9200"
+      - "9300"
 #    expose:
 #      - "9200"
 #      - "9300"
@@ -171,6 +171,9 @@ services:
 
     networks:
       - elk
+    ports:
+      - "9200"
+      - "9300"
   es_data_2:
     build:
       context: elasticsearch/
@@ -197,6 +200,9 @@ services:
 
     networks:
       - elk
+    ports:
+      - "9200"
+      - "9300"
   es_data_3:
     build:
       context: elasticsearch/
@@ -221,6 +227,9 @@ services:
 #      - es_master_2
 #      - es_master_3
 
+    ports:
+      - "9200"
+      - "9300"
     networks:
       - elk
   es_data_4:
@@ -247,6 +256,9 @@ services:
 #      - es_master_2
 #      - es_master_3
 
+    ports:
+      - "9200"
+      - "9300"
     networks:
       - elk
   es_data_5:
@@ -273,6 +285,9 @@ services:
 #      - es_master_2
 #      - es_master_3
 
+    ports:
+      - "9200"
+      - "9300"
     networks:
       - elk
   es_data_6:
@@ -298,7 +313,9 @@ services:
 #      - es_master_1
 #      - es_master_2
 #      - es_master_3
-
+    ports:
+      - "9200"
+      - "9300"
     networks:
       - elk
   es_data_7:
@@ -350,7 +367,9 @@ services:
 #      - es_master_1
 #      - es_master_2
 #      - es_master_3
-
+    ports:
+      - "9200"
+      - "9300"
     networks:
       - elk
   es_data_9:
@@ -372,6 +391,9 @@ services:
       memlock:
         soft: -1
         hard: -1
+    ports:
+      - "9200"
+      - "9300"
     networks:
       - elk
 #    depends_on:
@@ -398,6 +420,9 @@ services:
       memlock:
         soft: -1
         hard: -1
+    ports:
+      - "9200"
+      - "9300"
     networks:
       - elk
 
