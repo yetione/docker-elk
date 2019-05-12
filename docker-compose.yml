@@ -16,9 +16,10 @@ services:
       - log:/var/log/elasticsearch
     ports:
       - "127.0.0.1:9200:9200"
+      - "127.0.0.1:9300:9300"
 #    expose:
 #      - "9200"
-#      - "9300"
+#      - "9300"1
     environment:
       - node.name=es_master_1
       - http.port=9200
@@ -44,6 +45,7 @@ services:
       - log:/var/log/elasticsearch
     ports:
       - "127.0.0.1:9201:9201"
+      - "127.0.0.1:9301:9301"
 #    expose:
 #      - "9201"
 #      - "9301"
@@ -72,6 +74,7 @@ services:
       - log:/var/log/elasticsearch
     ports:
       - "127.0.0.1:9202:9202"
+      - "127.0.0.1:9302:9302"
 #    expose:
 #      - "9202"
 #      - "9302"
