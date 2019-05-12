@@ -120,31 +120,34 @@ services:
 #      - es_data_10
     networks:
       - elk
-#  es_ingest:
-#    build:
-#      context: elasticsearch/
-#      args:
-#        ELK_VERSION: $ELK_VERSION
-#    container_name: es_ingest
-#    volumes:
-#      - ./elasticsearch/ingest/elasticsearch.yml:/usr/share/elasticsearch/config/elasticsearch.yml:ro
-#      - ./elasticsearch/ingest/log4j2.properties:/usr/share/elasticsearch/config/log4j2.properties:ro
-#      - ./elasticsearch/ingest/jvm.options:/usr/share/elasticsearch/config/jvm.options:ro
-#      - ingest_1:/usr/share/elasticsearch/data
-#      - log:/var/log/elasticsearch
-#    environment:
-#      - node.name=es_ingest
-#    ulimits:
-#      nproc: 65535
-#      memlock:
-#        soft: -1
-#        hard: -1
-#    links:
-#      - es_master_1
-#      - es_master_2
-#      - es_master_3
-#    networks:
-#      - elk
+  es_ingest:
+    build:
+      context: elasticsearch/
+      args:
+        ELK_VERSION: $ELK_VERSION
+    container_name: es_ingest
+    volumes:
+      - ./elasticsearch/ingest/elasticsearch.yml:/usr/share/elasticsearch/config/elasticsearch.yml:ro
+      - ./elasticsearch/ingest/log4j2.properties:/usr/share/elasticsearch/config/log4j2.properties:ro
+      - ./elasticsearch/ingest/jvm.options:/usr/share/elasticsearch/config/jvm.options:ro
+      - ingest_1:/usr/share/elasticsearch/data
+      - log:/var/log/elasticsearch
+    environment:
+      - node.name=es_ingest
+    ulimits:
+      nproc: 65535
+      memlock:
+        soft: -1
+        hard: -1
+    depends_on:
+      - es_master_1
+      - es_master_2
+      - es_master_3
+    ports:
+      - "9200"
+      - "9300"
+    networks:
+      - elk
   es_data_1:
     build:
       context: elasticsearch/
