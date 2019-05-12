@@ -7,3 +7,4 @@ node.ingest: false
 node.data: false
 discovery.zen.minimum_master_nodes: 3
 path.logs: /var/log/elasticsearch
+gateway.recover_after_nodes: 8
