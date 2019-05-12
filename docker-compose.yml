@@ -106,10 +106,6 @@ services:
       - es_master_1
       - es_master_2
       - es_master_3
-    depends_on:
-      - es_master_1
-      - es_master_2
-      - es_master_3
     networks:
       - elk
   es_data_1:
@@ -135,10 +131,7 @@ services:
       - es_master_1
       - es_master_2
       - es_master_3
-    depends_on:
-      - es_master_1
-      - es_master_2
-      - es_master_3
+
     networks:
       - elk
   es_data_2:
@@ -164,10 +157,7 @@ services:
       - es_master_1
       - es_master_2
       - es_master_3
-    depends_on:
-      - es_master_1
-      - es_master_2
-      - es_master_3
+
     networks:
       - elk
   es_data_3:
@@ -193,10 +183,7 @@ services:
       - es_master_1
       - es_master_2
       - es_master_3
-    depends_on:
-      - es_master_1
-      - es_master_2
-      - es_master_3
+
     networks:
       - elk
   es_data_4:
@@ -222,10 +209,7 @@ services:
       - es_master_1
       - es_master_2
       - es_master_3
-    depends_on:
-      - es_master_1
-      - es_master_2
-      - es_master_3
+
     networks:
       - elk
   es_data_5:
@@ -251,10 +235,7 @@ services:
       - es_master_1
       - es_master_2
       - es_master_3
-    depends_on:
-      - es_master_1
-      - es_master_2
-      - es_master_3
+
     networks:
       - elk
   es_data_6:
@@ -280,10 +261,7 @@ services:
       - es_master_1
       - es_master_2
       - es_master_3
-    depends_on:
-      - es_master_1
-      - es_master_2
-      - es_master_3
+
     networks:
       - elk
   es_data_7:
@@ -309,10 +287,7 @@ services:
       - es_master_1
       - es_master_2
       - es_master_3
-    depends_on:
-      - es_master_1
-      - es_master_2
-      - es_master_3
+
     networks:
       - elk
   es_data_8:
@@ -338,10 +313,7 @@ services:
       - es_master_1
       - es_master_2
       - es_master_3
-    depends_on:
-      - es_master_1
-      - es_master_2
-      - es_master_3
+
     networks:
       - elk
   es_data_9:
@@ -369,10 +341,7 @@ services:
       - es_master_1
       - es_master_2
       - es_master_3
-    depends_on:
-      - es_master_1
-      - es_master_2
-      - es_master_3
+
   es_data_10:
     build:
       context: elasticsearch/
@@ -394,10 +363,7 @@ services:
         hard: -1
     networks:
       - elk
-    depends_on:
-      - es_master_1
-      - es_master_2
-      - es_master_3
+
     links:
       - es_master_1
       - es_master_2
