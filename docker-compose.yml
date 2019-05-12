@@ -14,12 +14,11 @@ services:
       - ./elasticsearch/master/jvm.options:/usr/share/elasticsearch/config/jvm.options:ro
       - master_1:/usr/share/elasticsearch/data
       - log:/var/log/elasticsearch
-#    ports:
-#      - "127.0.0.1:9200:9200"
-#      - "127.0.0.1:9300:9300"
-    expose:
-      - "9200"
-      - "9300"
+    ports:
+      - "127.0.0.1:9200:9200"
+#    expose:
+#      - "9200"
+#      - "9300"
     environment:
       - node.name=es_master_1
       - http.port=9200
@@ -43,12 +42,11 @@ services:
       - ./elasticsearch/master/jvm.options:/usr/share/elasticsearch/config/jvm.options:ro
       - master_2:/usr/share/elasticsearch/data
       - log:/var/log/elasticsearch
-#    ports:
-#      - "127.0.0.1:9201:9200"
-#      - "127.0.0.1:9301:9300"
-    expose:
-      - "9201"
-      - "9301"
+    ports:
+      - "127.0.0.1:9201:9201"
+#    expose:
+#      - "9201"
+#      - "9301"
     environment:
       - node.name=es_master_2
       - http.port=9201
@@ -72,12 +70,11 @@ services:
       - ./elasticsearch/master/jvm.options:/usr/share/elasticsearch/config/jvm.options:ro
       - master_3:/usr/share/elasticsearch/data
       - log:/var/log/elasticsearch
-#    ports:
-#      - "127.0.0.1:9202:9200"
-#      - "127.0.0.1:9302:9300"
-    expose:
-      - "9202"
-      - "9302"
+    ports:
+      - "127.0.0.1:9202:9202"
+#    expose:
+#      - "9202"
+#      - "9302"
     environment:
       - node.name=es_master_3
       - http.port=9202
@@ -170,6 +167,8 @@ services:
       - elk
     depends_on:
       - es_master_1
+      - es_master_2
+      - es_master_3
 
 networks:
   elk:
