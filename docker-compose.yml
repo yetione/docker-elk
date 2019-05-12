@@ -17,9 +17,9 @@ services:
     ports:
       - "127.0.0.1:9200:9200"
       - "127.0.0.1:9300:9300"
-#    expose:
-#      - "9200"
-#      - "9300"
+    expose:
+      - "9200"
+      - "9300"
     environment:
       - node.name=es_master_1
       - http.port=9200
@@ -46,9 +46,9 @@ services:
     ports:
       - "127.0.0.1:9201:9201"
       - "127.0.0.1:9301:9301"
-#    expose:
-#      - "9201"
-#      - "9301"
+    expose:
+      - "9201"
+      - "9301"
     environment:
       - node.name=es_master_2
       - http.port=9201
@@ -75,9 +75,9 @@ services:
     ports:
       - "127.0.0.1:9202:9202"
       - "127.0.0.1:9302:9302"
-#    expose:
-#      - "9202"
-#      - "9302"
+    expose:
+      - "9202"
+      - "9302"
     environment:
       - node.name=es_master_3
       - http.port=9202
