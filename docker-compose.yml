@@ -15,12 +15,12 @@ services:
       - master_1:/usr/share/elasticsearch/data
       - log:/var/log/elasticsearch
       - master_1_jvm:/var/log/jvm
-    ports:
-      - "9200"
-      - "9300"
-#    expose:
+#    ports:
 #      - "9200"
 #      - "9300"
+    expose:
+      - "9200"
+      - "9300"
     environment:
       - node.name=es_master_1
     ulimits:
@@ -54,12 +54,12 @@ services:
       - master_2:/usr/share/elasticsearch/data
       - log:/var/log/elasticsearch
       - master_2_jvm:/var/log/jvm
-    ports:
-      - "9200"
-      - "9300"
-#    expose:
+#    ports:
 #      - "9200"
 #      - "9300"
+    expose:
+      - "9200"
+      - "9300"
     environment:
       - node.name=es_master_2
     ulimits:
@@ -94,12 +94,12 @@ services:
       - log:/var/log/elasticsearch
       - master_3_jvm:/var/log/jvm
 
-    ports:
-      - "9200"
-      - "9300"
-#    expose:
+#    ports:
 #      - "9200"
 #      - "9300"
+    expose:
+      - "9200"
+      - "9300"
     environment:
       - node.name=es_master_3
     ulimits:
@@ -143,7 +143,10 @@ services:
       - es_master_1
       - es_master_2
       - es_master_3
-    ports:
+#    ports:
+#      - "9200"
+#      - "9300"
+    expose:
       - "9200"
       - "9300"
     networks:
@@ -174,9 +177,12 @@ services:
 
     networks:
       - elk
-    ports:
+    expose:
       - "9200"
       - "9300"
+#    ports:
+#      - "9200"
+#      - "9300"
   es_data_2:
     build:
       context: elasticsearch/
@@ -203,9 +209,12 @@ services:
 
     networks:
       - elk
-    ports:
+    expose:
       - "9200"
       - "9300"
+#    ports:
+#      - "9200"
+#      - "9300"
   es_data_3:
     build:
       context: elasticsearch/
@@ -229,10 +238,12 @@ services:
       - es_master_1
       - es_master_2
       - es_master_3
-
-    ports:
+    expose:
       - "9200"
       - "9300"
+#    ports:
+#      - "9200"
+#      - "9300"
     networks:
       - elk
   es_data_4:
@@ -258,10 +269,12 @@ services:
       - es_master_1
       - es_master_2
       - es_master_3
-
-    ports:
+    expose:
       - "9200"
       - "9300"
+#    ports:
+#      - "9200"
+#      - "9300"
     networks:
       - elk
 #  es_data_5:
