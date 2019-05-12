@@ -28,6 +28,17 @@ services:
       memlock:
         soft: -1
         hard: -1
+    depends_on:
+      - es_data_1
+      - es_data_2
+      - es_data_3
+      - es_data_4
+      - es_data_5
+      - es_data_6
+      - es_data_7
+      - es_data_8
+      - es_data_9
+      - es_data_10
     networks:
       - elk
   es_master_2:
@@ -56,6 +67,17 @@ services:
       memlock:
         soft: -1
         hard: -1
+    depends_on:
+      - es_data_1
+      - es_data_2
+      - es_data_3
+      - es_data_4
+      - es_data_5
+      - es_data_6
+      - es_data_7
+      - es_data_8
+      - es_data_9
+      - es_data_10
     networks:
       - elk
   es_master_3:
@@ -85,6 +107,17 @@ services:
       memlock:
         soft: -1
         hard: -1
+    depends_on:
+      - es_data_1
+      - es_data_2
+      - es_data_3
+      - es_data_4
+      - es_data_5
+      - es_data_6
+      - es_data_7
+      - es_data_8
+      - es_data_9
+      - es_data_10
     networks:
       - elk
 #  es_ingest:
@@ -131,10 +164,10 @@ services:
       memlock:
         soft: -1
         hard: -1
-    depends_on:
-      - es_master_1
-      - es_master_2
-      - es_master_3
+#    depends_on:
+#      - es_master_1
+#      - es_master_2
+#      - es_master_3
 
     networks:
       - elk
@@ -157,10 +190,10 @@ services:
       memlock:
         soft: -1
         hard: -1
-    depends_on:
-      - es_master_1
-      - es_master_2
-      - es_master_3
+#    depends_on:
+#      - es_master_1
+#      - es_master_2
+#      - es_master_3
 
     networks:
       - elk
@@ -183,10 +216,10 @@ services:
       memlock:
         soft: -1
         hard: -1
-    depends_on:
-      - es_master_1
-      - es_master_2
-      - es_master_3
+#    depends_on:
+#      - es_master_1
+#      - es_master_2
+#      - es_master_3
 
     networks:
       - elk
@@ -209,10 +242,10 @@ services:
       memlock:
         soft: -1
         hard: -1
-    depends_on:
-      - es_master_1
-      - es_master_2
-      - es_master_3
+#    depends_on:
+#      - es_master_1
+#      - es_master_2
+#      - es_master_3
 
     networks:
       - elk
@@ -235,10 +268,10 @@ services:
       memlock:
         soft: -1
         hard: -1
-    depends_on:
-      - es_master_1
-      - es_master_2
-      - es_master_3
+#    depends_on:
+#      - es_master_1
+#      - es_master_2
+#      - es_master_3
 
     networks:
       - elk
@@ -261,10 +294,10 @@ services:
       memlock:
         soft: -1
         hard: -1
-    depends_on:
-      - es_master_1
-      - es_master_2
-      - es_master_3
+#    depends_on:
+#      - es_master_1
+#      - es_master_2
+#      - es_master_3
 
     networks:
       - elk
@@ -287,10 +320,10 @@ services:
       memlock:
         soft: -1
         hard: -1
-    depends_on:
-      - es_master_1
-      - es_master_2
-      - es_master_3
+#    depends_on:
+#      - es_master_1
+#      - es_master_2
+#      - es_master_3
 
     networks:
       - elk
@@ -313,10 +346,10 @@ services:
       memlock:
         soft: -1
         hard: -1
-    depends_on:
-      - es_master_1
-      - es_master_2
-      - es_master_3
+#    depends_on:
+#      - es_master_1
+#      - es_master_2
+#      - es_master_3
 
     networks:
       - elk
@@ -341,10 +374,10 @@ services:
         hard: -1
     networks:
       - elk
-    depends_on:
-      - es_master_1
-      - es_master_2
-      - es_master_3
+#    depends_on:
+#      - es_master_1
+#      - es_master_2
+#      - es_master_3
 
   es_data_10:
     build:
@@ -368,10 +401,10 @@ services:
     networks:
       - elk
 
-    depends_on:
-      - es_master_1
-      - es_master_2
-      - es_master_3
+#    depends_on:
+#      - es_master_1
+#      - es_master_2
+#      - es_master_3
   kibana:
     build:
       context: kibana/
