@@ -1,4 +1,4 @@
-network.host: _eth0_
+#network.host: _eth0_
 http.port: 9200
 transport.port: 9300
 
