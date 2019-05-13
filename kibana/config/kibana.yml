@@ -13,3 +13,4 @@ elasticsearch.hosts:
   - "http://es_master_3:9200"
 #  - "http://es_master_3:9202"
 logging.dest: /var/log/kibana/kibana.log
+logging.quiet: true
