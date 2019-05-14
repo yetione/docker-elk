@@ -116,6 +116,21 @@ services:
       - "127.0.0.1:5601:5601"
     networks:
       - elk
+  logstash:
+    build:
+      context: logstash/
+      args:
+        ELK_VERSION: $ELK_VERSION
+    container_name: logstash
+    volumes:
+      - ./logstash/config/logstash.yml:/usr/share/logstash/config/logstash.yml:ro
+      - ./logstash/config/log4j2.properties:/usr/share/logstash/config/log4j2.properties:ro
+      - ./logstash/config/jvm.options:/usr/share/logstash/config/jvm.options:ro
+      - logstash:/usr/share/logstash/data
+      - log:/var/log/logstash
+      - logstash_jvm:/var/log/jvm
+
+
 
 networks:
   elk:
@@ -133,4 +148,8 @@ volumes:
   log:
     driver: local
   master_1_jvm:
+    driver: local
+  logstash:
+    driver: local
+  logstash_jvm:
     driver: local
