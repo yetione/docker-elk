@@ -9,16 +9,7 @@ node.ingest: false
 node.data: false
 
 cluster.name: "docker-cluster"
-#cluster.initial_master_nodes:
-#  - es_master_1
-#  - es_master_2
-#  - es_master_3
 
-#discovery.seed_hosts:
-#  - es_master_1
-#  - es_master_2
-#  - es_master_3
-#discovery.zen.minimum_master_nodes: 2
 
 bootstrap.memory_lock: true
 
@@ -28,7 +19,7 @@ path.logs: /var/log/elasticsearch
 
 gateway.recover_after_time: 3m
 
-gateway.expected_nodes: 14
-gateway.recover_after_nodes: 8
-gateway.recover_after_master_nodes: 3
-gateway.recover_after_data_nodes: 10
+gateway.expected_nodes: 4
+gateway.recover_after_nodes: 3
+gateway.recover_after_master_nodes: 1
+gateway.recover_after_data_nodes: 2

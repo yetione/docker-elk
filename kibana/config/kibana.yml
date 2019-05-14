@@ -8,9 +8,5 @@ elasticsearch.requestTimeout: 300000
 
 elasticsearch.hosts:
   - "http://es_master_1:9200"
-  - "http://es_master_2:9200"
-#  - "http://es_master_2:9201"
-  - "http://es_master_3:9200"
-#  - "http://es_master_3:9202"
 logging.dest: /var/log/kibana/kibana.log
 logging.quiet: true
