@@ -2,4 +2,4 @@ http.host: "0.0.0.0"
 path.config: /usr/share/logstash/pipeline
 xpack.monitoring.enabled: true
 #xpack.license.self_generated.type: 'basic'
-xpack.monitoring.elasticsearch.hosts: ["http://es_master_1:9200"]
+xpack.monitoring.elasticsearch.hosts: ["elasticmaster:9200"]
