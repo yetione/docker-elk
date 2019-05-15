@@ -1,0 +1,36 @@
+version: '3.5'
+
+services:
+  rabbitmq:
+    hostname: node-1.rabbitmq
+    build:
+      context: rabbitmq/
+    container_name: rabbitmq
+    volumes:
+      - ./rabbitmq/config/rabbitmq.config:/etc/rabbitmq/rabbitmq.config
+      - ./rabbitmq/config/rabbit.json:/etc/rabbitmq/rabbit.json
+      - rabbitmq_data:/var/lib/rabbitmq
+      - rabbitmq_log:/var/log/rabbitmq
+    ports:
+      - "127.0.0.1:4369:4369"
+      - "127.0.0.1:5672:5672"
+      - "127.0.0.1:25672:25672"
+      - "127.0.0.1:35197:35197"
+    environment:
+      - "RABBITMQ_USE_LONGNAME=true"
+      - "RABBITMQ_LOGS=/var/log/rabbitmq/rabbit.log"
+    expose:
+      - "5672"
+    networks:
+      - rabbitmq
+
+volumes:
+  rabbitmq_data:
+    driver: local
+  rabbitmq_log:
+    driver: local
+
+networks:
+  rabbitmq:
+    driver: bridge
+    external: true
