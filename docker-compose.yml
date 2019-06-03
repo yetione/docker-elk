@@ -122,6 +122,8 @@ services:
       args:
         ELK_VERSION: $ELK_VERSION
     container_name: logstash
+    networks:
+      - elk
     depends_on:
       - es_master_1
     ports:
