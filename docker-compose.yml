@@ -124,6 +124,9 @@ services:
     container_name: logstash
     networks:
       - elk
+      - mobium_app
+    links:
+      - es_master_1:elasticsearch
     depends_on:
       - es_master_1
     ports:
@@ -144,6 +147,9 @@ services:
 
 networks:
   elk:
+    driver: bridge
+  mobium_app:
+    external: true
     driver: bridge
 
 volumes:
