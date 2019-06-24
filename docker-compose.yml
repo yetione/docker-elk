@@ -81,31 +81,31 @@ services:
     expose:
       - "9200"
       - "9300"
-#  es_data_2:
-#    build:
-#      context: elasticsearch/
-#      args:
-#        ELK_VERSION: $ELK_VERSION
-#    container_name: es_data_2
-#    volumes:
-#      - ./elasticsearch/data/elasticsearch.yml:/usr/share/elasticsearch/config/elasticsearch.yml:ro
-#      - ./elasticsearch/data/log4j2.properties:/usr/share/elasticsearch/config/log4j2.properties:ro
-#      - ./elasticsearch/data/jvm.options:/usr/share/elasticsearch/config/jvm.options:ro
-#      - data_2:/usr/share/elasticsearch/data
-#      - log:/var/log/elasticsearch
-#    environment:
-#      - node.name=es_data_2
-#    ulimits:
-#      nproc: 65535
-#      memlock:
-#        soft: -1
-#        hard: -1
-#
-#    networks:
-#      - elk
-#    expose:
-#      - "9200"
-#      - "9300"
+  es_data_2:
+    build:
+      context: elasticsearch/
+      args:
+        ELK_VERSION: $ELK_VERSION
+    container_name: es_data_2
+    volumes:
+      - ./elasticsearch/data/elasticsearch.yml:/usr/share/elasticsearch/config/elasticsearch.yml:ro
+      - ./elasticsearch/data/log4j2.properties:/usr/share/elasticsearch/config/log4j2.properties:ro
+      - ./elasticsearch/data/jvm.options:/usr/share/elasticsearch/config/jvm.options:ro
+      - data_2:/usr/share/elasticsearch/data
+      - log:/var/log/elasticsearch
+    environment:
+      - node.name=es_data_2
+    ulimits:
+      nproc: 65535
+      memlock:
+        soft: -1
+        hard: -1
+    networks:
+      - elk
+      - mobium_app
+    expose:
+      - "9200"
+      - "9300"
   kibana:
     build:
       context: kibana/

@@ -82,5 +82,5 @@
 # time/date parsing will break in an incompatible way for some date patterns and locals
 -Djava.locale.providers=COMPAT
 
--Xms256m
--Xmx256m
+-Xms1024m
+-Xmx1024m
