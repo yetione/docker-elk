@@ -389,22 +389,22 @@ volumes:
     driver: local
   data_1:
     driver: local
-  data_2:
-    driver: local
-  data_3:
-    driver: local
-  data_4:
-    driver: local
+#  data_2:
+#    driver: local
+#  data_3:
+#    driver: local
+#  data_4:
+#    driver: local
   data_5:
     driver: local
   data_6:
     driver: local
-  data_7:
-    driver: local
-  data_8:
-    driver: local
-  data_9:
-    driver: local
+#  data_7:
+#    driver: local
+#  data_8:
+#    driver: local
+#  data_9:
+#    driver: local
   data_10:
     driver: local
   log:
