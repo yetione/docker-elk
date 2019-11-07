@@ -158,8 +158,6 @@ networks:
     driver: bridge
   mynet:
     external: true
-  host:
-    external: true
 
 volumes:
   master_1:
