@@ -148,6 +148,7 @@ services:
       - logstash_jvm:/var/log/jvm
   rabbitmq:
     image: rabbitmq:3-management
+    container_name: rabbitmq
     networks:
       - elk
       - mobium_app
