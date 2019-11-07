@@ -128,7 +128,6 @@ services:
     networks:
       - elk
       - mobium_app
-      - mynet
       - host
     links:
       - es_master_1:elasticsearch
@@ -156,8 +155,9 @@ networks:
   mobium_app:
     external: true
     driver: bridge
-  mynet:
+  host:
     external: true
+    driver: host
 
 volumes:
   master_1:
