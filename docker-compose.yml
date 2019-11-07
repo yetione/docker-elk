@@ -128,7 +128,7 @@ services:
     networks:
       - elk
       - mobium_app
-    network_mode: host
+      - host
     links:
       - es_master_1:elasticsearch
     depends_on:
@@ -155,6 +155,8 @@ networks:
   mobium_app:
     external: true
     driver: bridge
+  host:
+    external: true
 
 volumes:
   master_1:
