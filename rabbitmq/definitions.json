@@ -148,6 +148,14 @@
   ],
   "bindings": [
     {
+      "source": "logs",
+      "vhost": "/",
+      "destination": "logs.core",
+      "destination_type": "queue",
+      "routing_key": "",
+      "arguments": {}
+    },
+    {
       "source": "indexOffers",
       "vhost": "/",
       "destination": "indexOffers.queue",
