@@ -154,6 +154,8 @@ networks:
   mobium_app:
     external: true
     driver: bridge
+  dockernets:
+    external: true
 
 volumes:
   master_1:
