@@ -128,7 +128,7 @@ services:
     networks:
       - elk
       - mobium_app
-      - host
+      - dockernet
     links:
       - es_master_1:elasticsearch
     depends_on:
@@ -155,7 +155,7 @@ networks:
   mobium_app:
     external: true
     driver: bridge
-  host:
+  dockernet:
     external: true
 
 volumes:
