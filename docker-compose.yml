@@ -128,7 +128,6 @@ services:
     networks:
       - elk
       - mobium_app
-      - dockernet
     links:
       - es_master_1:elasticsearch
     depends_on:
@@ -149,10 +148,14 @@ services:
   rabbitmq:
     image: rabbitmq:3-management
     container_name: rabbitmq
+    hostname: "rabbitmq"
+    environment:
+      RABBITMQ_ERLANG_COOKIE: "SWQOKODSQAERRPCLNMEQG"
+    labels:
+      NAME: "rabbitmq"
     networks:
       - elk
       - mobium_app
-      - dockernet
     ports:
       - '127.0.0.1:5672:5672'
       - '127.0.0.1:15672:15672'
@@ -169,8 +172,7 @@ networks:
   mobium_app:
     external: true
     driver: bridge
-  dockernet:
-    external: true
+
 
 volumes:
   rabbit_data:
