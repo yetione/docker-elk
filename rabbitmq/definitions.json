@@ -1,17 +1,11 @@
 {
-  "rabbit_version": "3.8.1",
+  "rabbit_version": "3.6.12",
   "users": [
     {
-      "name": "r-mobium",
-      "password_hash": "DoeHUC9a93932B1D/TLDJY2ypP9m8oCFDHEsvaaEEc2RtBnV",
-      "hashing_algorithm": "rabbit_password_hashing_sha256",
-      "tags": "administrator"
-    },
-    {
-      "name": "guest",
-      "password_hash": "auyV3ZFseqCm3/0x1oavMySzqQcxli0OGfQgJwtMnA9mkqB9",
-      "hashing_algorithm": "rabbit_password_hashing_sha256",
-      "tags": "administrator"
+      "name":"r-mobium",
+      "password_hash":"Jr2G4YS/x67hzRBMhyZbMxn0C1wJiOwgOo8FFbAIhLfF8483",
+      "hashing_algorithm":"rabbit_password_hashing_sha256",
+      "tags":"administrator"
     }
   ],
   "vhosts": [
@@ -26,122 +20,50 @@
       "configure": ".*",
       "write": ".*",
       "read": ".*"
-    },
-    {
-      "user": "guest",
-      "vhost": "/",
-      "configure": ".*",
-      "write": ".*",
-      "read": ".*"
     }
   ],
   "parameters": [],
+  "global_parameters": [
+    {
+      "name": "cluster_name",
+      "value": "rabbit@5a81d356219a"
+    }
+  ],
   "policies": [],
   "queues": [
+    {
+      "name": "logs.panel",
+      "vhost": "/",
+      "durable": true,
+      "auto_delete": false,
+      "passive": false,
+      "arguments": {}
+    },
     {
       "name": "logs.core",
       "vhost": "/",
       "durable": true,
       "auto_delete": false,
+      "passive": false,
       "arguments": {}
     },
     {
-      "name": "sync.queue",
+      "name": "logs.app",
       "vhost": "/",
       "durable": true,
       "auto_delete": false,
-      "arguments": {}
-    },
-    {
-      "name": "push.queue",
-      "vhost": "/",
-      "durable": true,
-      "auto_delete": false,
-      "arguments": {}
-    },
-    {
-      "name": "indexOffers.queue",
-      "vhost": "/",
-      "durable": true,
-      "auto_delete": false,
-      "arguments": {}
-    },
-    {
-      "name": "searchHistory.queue",
-      "vhost": "/",
-      "durable": true,
-      "auto_delete": false,
-      "arguments": {}
-    },
-    {
-      "name": "pushTask.queue",
-      "vhost": "/",
-      "durable": true,
-      "auto_delete": false,
+      "passive": false,
       "arguments": {}
     }
   ],
   "exchanges": [
-    {
-      "name": "indexOffers",
-      "vhost": "/",
-      "type": "direct",
-      "durable": true,
-      "auto_delete": false,
-      "internal": false,
-      "arguments": {}
-    },
-    {
-      "name": "pushTask",
-      "vhost": "/",
-      "type": "direct",
-      "durable": true,
-      "auto_delete": false,
-      "internal": false,
-      "arguments": {}
-    },
-    {
-      "name": "sync",
-      "vhost": "/",
-      "type": "direct",
-      "durable": true,
-      "auto_delete": false,
-      "internal": false,
-      "arguments": {}
-    },
-    {
-      "name": "push",
-      "vhost": "/",
-      "type": "direct",
-      "durable": true,
-      "auto_delete": false,
-      "internal": false,
-      "arguments": {}
-    },
     {
       "name": "logs",
       "vhost": "/",
       "type": "direct",
       "durable": true,
       "auto_delete": false,
-      "internal": false,
-      "arguments": {}
-    },
-    {
-      "name": "searchHistory",
-      "vhost": "/",
-      "type": "direct",
-      "durable": true,
-      "auto_delete": false,
-      "internal": false,
-      "arguments": {}
-    },
-    {
-      "name": "stat",
-      "vhost": "/",
-      "type": "direct",
-      "durable": true,
-      "auto_delete": false,
+      "passive": false,
       "internal": false,
       "arguments": {}
     }
@@ -150,49 +72,25 @@
     {
       "source": "logs",
       "vhost": "/",
+      "destination": "logs.panel",
+      "destination_type": "queue",
+      "routing_key": "logs.panel",
+      "arguments": {}
+    },
+    {
+      "source": "logs",
+      "vhost": "/",
       "destination": "logs.core",
       "destination_type": "queue",
-      "routing_key": "",
+      "routing_key": "core",
       "arguments": {}
     },
     {
-      "source": "indexOffers",
+      "source": "logs",
       "vhost": "/",
-      "destination": "indexOffers.queue",
+      "destination": "logs.app",
       "destination_type": "queue",
-      "routing_key": "",
-      "arguments": {}
-    },
-    {
-      "source": "push",
-      "vhost": "/",
-      "destination": "push.queue",
-      "destination_type": "queue",
-      "routing_key": "",
-      "arguments": {}
-    },
-    {
-      "source": "pushTask",
-      "vhost": "/",
-      "destination": "pushTask.queue",
-      "destination_type": "queue",
-      "routing_key": "",
-      "arguments": {}
-    },
-    {
-      "source": "searchHistory",
-      "vhost": "/",
-      "destination": "searchHistory.queue",
-      "destination_type": "queue",
-      "routing_key": "",
-      "arguments": {}
-    },
-    {
-      "source": "sync",
-      "vhost": "/",
-      "destination": "sync.queue",
-      "destination_type": "queue",
-      "routing_key": "",
+      "routing_key": "app",
       "arguments": {}
     }
   ]
