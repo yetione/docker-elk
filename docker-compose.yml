@@ -145,24 +145,24 @@ services:
       - logstash:/usr/share/logstash/data
       - log:/var/log/logstash
       - logstash_jvm:/var/log/jvm
-  rabbitmq:
-    image: rabbitmq:3-management
-    container_name: rabbitmq
-    hostname: "rabbitmq"
-    environment:
-      RABBITMQ_ERLANG_COOKIE: "SWQOKODSQAERRPCLNMEQG"
-    labels:
-      NAME: "rabbitmq"
-    networks:
-      - elk
-      - mobium_app
-    ports:
-      - '127.0.0.1:5672:5672'
-      - '127.0.0.1:15672:15672'
-    volumes:
-      - rabbit_data:/var/lib/rabbitmq/mnesia
-      - ./rabbitmq/rabbitmq.config /etc/rabbitmq/rabbitmq.config
-      - ./rabbitmq/definitions.json /etc/rabbitmq/rabbit.json
+#  rabbitmq:
+#    image: rabbitmq:3-management
+#    container_name: rabbitmq
+#    hostname: "rabbitmq"
+#    environment:
+#      RABBITMQ_ERLANG_COOKIE: "SWQOKODSQAERRPCLNMEQG"
+#    labels:
+#      NAME: "rabbitmq"
+#    networks:
+#      - elk
+#      - mobium_app
+#    ports:
+#      - '127.0.0.1:5672:5672'
+#      - '127.0.0.1:15672:15672'
+#    volumes:
+#      - rabbit_data:/var/lib/rabbitmq/mnesia
+#      - ./rabbitmq/rabbitmq.config /etc/rabbitmq/rabbitmq.config
+#      - ./rabbitmq/definitions.json /etc/rabbitmq/rabbit.json
 
 
 
@@ -175,8 +175,8 @@ networks:
 
 
 volumes:
-  rabbit_data:
-    driver: local
+#  rabbit_data:
+#    driver: local
   master_1:
     driver: local
   ingest_1:
