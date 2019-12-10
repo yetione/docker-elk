@@ -446,3 +446,5 @@ volumes:
     driver: local
   logstash:
     driver: local
+  host:
+    driver: local
