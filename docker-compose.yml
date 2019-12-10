@@ -447,4 +447,4 @@ volumes:
   logstash:
     driver: local
   host:
-    driver: host
+    driver: external
