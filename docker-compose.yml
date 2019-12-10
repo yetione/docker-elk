@@ -373,32 +373,32 @@ services:
 #      - es_master_1
 #      - es_master_2
 #      - es_master_3
-  logstash:
-    build:
-      context: logstash/
-      args:
-        ELK_VERSION: $ELK_VERSION
-    container_name: logstash
-    networks:
-      - elk
-      - host
-    links:
-      - es_master_1:elasticsearch
-    depends_on:
-      - es_master_1
-    ports:
-      - "127.0.0.1:5000:5000"
-      - "127.0.0.1:9600:9600"
-    environment:
-      LS_JAVA_OPTS: "-Xmx1g -Xms1g"
-    volumes:
-      - ./logstash/config/logstash.yml:/usr/share/logstash/config/logstash.yml:ro
-      - ./logstash/config/log4j2.properties:/usr/share/logstash/config/log4j2.properties:ro
-      - ./logstash/pipeline:/usr/share/logstash/pipeline:ro
-      #      - ./logstash/config/jvm.options:/usr/share/logstash/config/jvm.options:ro
-      - logstash:/usr/share/logstash/data
-      - log:/var/log/logstash
-      - logstash_jvm:/var/log/jvm
+#  logstash:
+#    build:
+#      context: logstash/
+#      args:
+#        ELK_VERSION: $ELK_VERSION
+#    container_name: logstash
+#    networks:
+#      - elk
+#      - host
+#    links:
+#      - es_master_1:elasticsearch
+#    depends_on:
+#      - es_master_1
+#    ports:
+#      - "127.0.0.1:5000:5000"
+#      - "127.0.0.1:9600:9600"
+#    environment:
+#      LS_JAVA_OPTS: "-Xmx1g -Xms1g"
+#    volumes:
+#      - ./logstash/config/logstash.yml:/usr/share/logstash/config/logstash.yml:ro
+#      - ./logstash/config/log4j2.properties:/usr/share/logstash/config/log4j2.properties:ro
+#      - ./logstash/pipeline:/usr/share/logstash/pipeline:ro
+#      #      - ./logstash/config/jvm.options:/usr/share/logstash/config/jvm.options:ro
+#      - logstash:/usr/share/logstash/data
+#      - log:/var/log/logstash
+#      - logstash_jvm:/var/log/jvm
 
 
 networks:
