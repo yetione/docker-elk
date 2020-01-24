@@ -20,5 +20,6 @@ discovery.zen.ping.unicast.hosts: ["es_master_1", "es_master_2", "es_master_3"]
 #  - es_master_3
 
 path.logs: /var/log/elasticsearch
+path.repo: ["/mount/bcp"]
 
 #gateway.recover_after_nodes: 5
